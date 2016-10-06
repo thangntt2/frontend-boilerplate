@@ -1,38 +1,46 @@
 
 import React, { Component } from 'react'
-import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 import Header from '../../components/Header'
-import MainSection from '../../components/MainSection'
-import * as TodoActions from '../../actions/todos'
 import style from './style.css'
+import { navigate } from '../../actions'
 
 class App extends Component {
+  constructor(props) {
+    super(props)
+    this.handleChangePath = this.handleChangePath.bind(this)
+  }
+
+  handleChangePath(path) {
+    this.props.navigate(path)
+  }
+
   render() {
-    const { todos, actions, children } = this.props
+    const { children, location } = this.props
     return (
       <div className={style.normal}>
-        <Header addTodo={actions.addTodo} />
-        <MainSection todos={todos} actions={actions} />
+        <Header
+          onChangeTab={this.handleChangePath}
+          path={location.pathname}
+        />
         {children}
       </div>
     )
   }
 }
 
+App.propTypes = {
+  children : React.PropTypes.object,
+  navigate: React.PropTypes.func.isRequired,
+  location: React.PropTypes.object,
+}
+
 function mapStateToProps(state) {
   return {
-    todos: state.todos
+    todos: state.todos,
   }
 }
 
-function mapDispatchToProps(dispatch) {
-  return {
-    actions: bindActionCreators(TodoActions, dispatch)
-  }
-}
-
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(App)
+export default connect(mapStateToProps, {
+  navigate,
+})(App)

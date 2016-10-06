@@ -1,0 +1,1475 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"su",
+				"success"
+			],
+			[
+				"selected",
+				"selectedChannel〔variable〕"
+			],
+			[
+				"sel",
+				"selectedChannel"
+			],
+			[
+				"sub",
+				"submitMetacontent"
+			],
+			[
+				"send",
+				"sendMetacontent"
+			],
+			[
+				"SUB",
+				"SUBMIT_METACONTENT"
+			],
+			[
+				"SU",
+				"SUBMIT_FAIL"
+			],
+			[
+				"SUBMIT",
+				"SUBMIT_OK"
+			],
+			[
+				"prop",
+				"props\tReact: this.props"
+			],
+			[
+				"handle",
+				"handleClick"
+			],
+			[
+				"ListG",
+				"ListGroupItem"
+			],
+			[
+				"se",
+				"selectednewsProviders"
+			],
+			[
+				"new",
+				"newsProviders"
+			],
+			[
+				"sea",
+				"searchTerm"
+			],
+			[
+				"Reac",
+				"ReactDOM"
+			],
+			[
+				"sele",
+				"selectedChannel"
+			],
+			[
+				"pre",
+				"preForms"
+			],
+			[
+				"wa",
+				"watchPrepareCreateMetacontent"
+			],
+			[
+				"cate",
+				"categories〔variable〕"
+			],
+			[
+				"Cate",
+				"CategoryRadioGroup〔variable〕"
+			],
+			[
+				"selec",
+				"selectednewsProviders〔variable〕"
+			],
+			[
+				"han",
+				"handleSearch"
+			],
+			[
+				"ha",
+				"handleSearch"
+			],
+			[
+				"is",
+				"isSearching"
+			],
+			[
+				"fun",
+				"func"
+			],
+			[
+				"news",
+				"newsProviderList"
+			],
+			[
+				"handl",
+				"handleChannelChange"
+			],
+			[
+				"channel",
+				"channelIndex"
+			],
+			[
+				"hand",
+				"handleButtonClicked"
+			],
+			[
+				"get",
+				"getInputValue"
+			],
+			[
+				"Fo",
+				"FormGroup"
+			],
+			[
+				"Ch",
+				"ChannelPicker"
+			],
+			[
+				"Pro",
+				"PropTypes"
+			],
+			[
+				"cat",
+				"categoryList"
+			],
+			[
+				"Cat",
+				"CategoryRadioGroup"
+			],
+			[
+				"Form",
+				"FormGroup〔variable〕"
+			],
+			[
+				"meta",
+				"metacontents〔variable〕"
+			],
+			[
+				"Met",
+				"Metacontents〔function〕"
+			],
+			[
+				"Lo",
+				"LOAD_KEYWORD_PAGE"
+			],
+			[
+				"LO",
+				"LOAD_KEYWORD_PAGE"
+			],
+			[
+				"LOA",
+				"LOAD_METACONTENT_PAGE"
+			],
+			[
+				"API",
+				"API_BASE〔variable〕"
+			],
+			[
+				"fetch",
+				"fetchMetacontents"
+			],
+			[
+				"fe",
+				"fetchData"
+			],
+			[
+				"con",
+				"containers"
+			],
+			[
+				"cha",
+				"channels〔variable〕"
+			],
+			[
+				"Meta",
+				"MetacontentsTable"
+			],
+			[
+				"chan",
+				"channelName"
+			],
+			[
+				"ex",
+				"extends"
+			],
+			[
+				"on",
+				"onChangeTab"
+			],
+			[
+				"Channel",
+				"ChannelsContainer"
+			],
+			[
+				"co",
+				"containers"
+			],
+			[
+				"chann",
+				"channel_list"
+			],
+			[
+				"Chan",
+				"ChannelsTable"
+			],
+			[
+				"Com",
+				"Component〔variable〕"
+			],
+			[
+				"margin",
+				"margin-right"
+			],
+			[
+				"Channels",
+				"ChannelsTable"
+			],
+			[
+				"Nav",
+				"Navbar.Header"
+			],
+			[
+				"Stick",
+				"StickyContainer〔variable〕"
+			],
+			[
+				"elastic",
+				"elasticsearch"
+			],
+			[
+				"app",
+				"application"
+			],
+			[
+				"inde",
+				"indices\tstatement"
+			],
+			[
+				"es",
+				"es_body\tstatement"
+			],
+			[
+				"Base",
+				"BaseDupeFilter"
+			],
+			[
+				"ela",
+				"Elasticsearch\tclass"
+			],
+			[
+				"date",
+				"datetime\tclass"
+			],
+			[
+				"vn",
+				"vne_scrape"
+			],
+			[
+				"scrape",
+				"scrape_vne〔function〕"
+			],
+			[
+				"ar",
+				"articles"
+			],
+			[
+				"string",
+				"stringify"
+			],
+			[
+				"vne",
+				"vne_scrape〔variable〕"
+			],
+			[
+				"stri",
+				"stringify"
+			],
+			[
+				"ap",
+				"application"
+			],
+			[
+				"_",
+				"_show_channels_component"
+			],
+			[
+				"I",
+				"ImageLoader"
+			],
+			[
+				"dat",
+				"dataField"
+			],
+			[
+				"Boo",
+				"BootstrapTable〔variable〕"
+			],
+			[
+				"boo",
+				"bootstrapTable〔variable〕"
+			],
+			[
+				"Re",
+				"Reactable"
+			],
+			[
+				"node",
+				"node"
+			],
+			[
+				"res",
+				"response"
+			],
+			[
+				"ch",
+				"channels_list"
+			],
+			[
+				"channels",
+				"channels_list〔variable〕"
+			],
+			[
+				"com",
+				"components"
+			],
+			[
+				"channe",
+				"channelsFlow"
+			],
+			[
+				"Sid",
+				"Sidenav"
+			],
+			[
+				"updat",
+				"updateSelection"
+			],
+			[
+				"au",
+				"authorize"
+			],
+			[
+				"user",
+				"userData"
+			],
+			[
+				"us",
+				"userData"
+			],
+			[
+				"Dat",
+				"DatabaseAuthenticator〔variable〕"
+			],
+			[
+				"local",
+				"localStorage〔variable〕"
+			],
+			[
+				"pa",
+				"password"
+			],
+			[
+				"admin",
+				"admin@seespace.co"
+			],
+			[
+				"Rea",
+				"ReactDOM"
+			],
+			[
+				"conta",
+				"contacts"
+			],
+			[
+				"api",
+				"api_url"
+			],
+			[
+				"replac",
+				"replaceAll〔function〕"
+			],
+			[
+				"doc",
+				"document〔variable〕"
+			],
+			[
+				"err",
+				"error〔argument〕"
+			],
+			[
+				"JS",
+				"JSON2"
+			],
+			[
+				"wiki",
+				"wikiPage"
+			],
+			[
+				"wi",
+				"wikiPage"
+			],
+			[
+				"re",
+				"response"
+			],
+			[
+				"for",
+				"for\tfor (…) {…}"
+			],
+			[
+				"vi",
+				"vi_wiki_title"
+			],
+			[
+				"ba",
+				"batch_line"
+			],
+			[
+				"in",
+				"inserted"
+			],
+			[
+				"req",
+				"request〔variable〕"
+			],
+			[
+				"find",
+				"findById"
+			],
+			[
+				"li",
+				"listMetacontents"
+			],
+			[
+				"fin",
+				"findById"
+			],
+			[
+				"fo",
+				"foreignKey"
+			],
+			[
+				"time",
+				"timestamps"
+			],
+			[
+				"fu",
+				"function"
+			],
+			[
+				"lis",
+				"listChannels〔argument〕"
+			],
+			[
+				"mo",
+				"mongoose"
+			],
+			[
+				"bo",
+				"bodyParser"
+			],
+			[
+				"resource",
+				"resourceManager"
+			],
+			[
+				"Y",
+				"Youtube_dl_Handler"
+			],
+			[
+				"Ser",
+				"ServiceExample"
+			],
+			[
+				"start",
+				"start_service"
+			],
+			[
+				"keywor",
+				"key_word"
+			],
+			[
+				"key",
+				"key_word"
+			],
+			[
+				"ke",
+				"key_word"
+			],
+			[
+				"Th",
+				"ThangnttProb"
+			],
+			[
+				"job",
+				"jobjectArray"
+			],
+			[
+				"In",
+				"Index"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "/Users/thangtrinh/Workspace/ReactWorkspace/vnptReactFrontEnd/client/sagas/index.js",
+			"settings":
+			{
+				"buffer_size": 2710,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/Users/thangtrinh/Workspace/ReactWorkspace/vnptReactFrontEnd/client/containers/CreateMetacontent/index.js",
+			"settings":
+			{
+				"buffer_size": 3715,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/Users/thangtrinh/Workspace/ReactWorkspace/vnptReactFrontEnd/client/reducers/index.js",
+			"settings":
+			{
+				"buffer_size": 2147,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/Users/thangtrinh/Workspace/ReactWorkspace/vnptReactFrontEnd/client/components/CreateMetacontent/categoryRadioGroup.js",
+			"settings":
+			{
+				"buffer_size": 1328,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/Users/thangtrinh/Workspace/ReactWorkspace/vnptReactFrontEnd/client/components/Header/index.js",
+			"settings":
+			{
+				"buffer_size": 2084,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/Users/thangtrinh/Workspace/ReactWorkspace/vnptReactFrontEnd/client/components/CreateMetacontent/index.js",
+			"settings":
+			{
+				"buffer_size": 3273,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/Users/thangtrinh/Workspace/ReactWorkspace/vnptReactFrontEnd/client/components/Metacontents/metacontentsTable.js",
+			"settings":
+			{
+				"buffer_size": 1780,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/Users/thangtrinh/Workspace/ReactWorkspace/vnptReactFrontEnd/client/components/CreateMetacontent/metacontentsResult.js",
+			"settings":
+			{
+				"buffer_size": 1557,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/Users/thangtrinh/Workspace/ReactWorkspace/vnptReactFrontEnd/client/components/CreateMetacontent/channelPicker.js",
+			"settings":
+			{
+				"buffer_size": 843,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		}
+	],
+	"build_system": "",
+	"build_system_choices":
+	[
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 354.0,
+		"last_filter": "pack",
+		"selected_items":
+		[
+			[
+				"pack",
+				"Package Control: Install Package"
+			],
+			[
+				"java",
+				"Set Syntax: JavaScript (Babel)"
+			],
+			[
+				"package",
+				"Package Control: Install Package"
+			],
+			[
+				"instal",
+				"Package Control: Install Package"
+			],
+			[
+				"git",
+				"Gitignore: New gitignore"
+			],
+			[
+				"insta",
+				"Package Control: Install Package"
+			],
+			[
+				"yaml",
+				"Set Syntax: YAML"
+			],
+			[
+				"javas",
+				"Set Syntax: JavaScript (Babel)"
+			],
+			[
+				"instal ",
+				"Package Control: Install Package"
+			],
+			[
+				"ana",
+				"Anaconda: Goto Python object"
+			],
+			[
+				"remove",
+				"Package Control: Remove Package"
+			],
+			[
+				"install ",
+				"Package Control: Install Package"
+			],
+			[
+				"install",
+				"Package Control: Install Package"
+			],
+			[
+				"json",
+				"Set Syntax: JSON (Javascript Next)"
+			],
+			[
+				"inde",
+				"Indentation: Reindent Lines"
+			],
+			[
+				"Package Control",
+				"Package Control: Install Package"
+			]
+		],
+		"width": 575.0
+	},
+	"console":
+	{
+		"height": 126.0,
+		"history":
+		[
+			"import urllib.request,os,hashlib; h = '2915d1851351e5ee549c20394736b442' + '8bc59f460fa1548d1514676163dafc88'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( 'http://packagecontrol.io/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); print('Error validating download (got %s instead of %s), please try manual install' % (dh, h)) if dh != h else open(os.path.join( ipp, pf), 'wb' ).write(by)"
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"expanded_folders":
+	[
+		"/Users/thangtrinh/Workspace/ReactWorkspace/vnptReactFrontEnd/client",
+		"/Users/thangtrinh/Workspace/ReactWorkspace/vnptReactFrontEnd/client/actions",
+		"/Users/thangtrinh/Workspace/ReactWorkspace/vnptReactFrontEnd/client/apis",
+		"/Users/thangtrinh/Workspace/ReactWorkspace/vnptReactFrontEnd/client/components",
+		"/Users/thangtrinh/Workspace/ReactWorkspace/vnptReactFrontEnd/client/components/CreateMetacontent",
+		"/Users/thangtrinh/Workspace/ReactWorkspace/vnptReactFrontEnd/client/components/Header",
+		"/Users/thangtrinh/Workspace/ReactWorkspace/vnptReactFrontEnd/client/components/Metacontents",
+		"/Users/thangtrinh/Workspace/ReactWorkspace/vnptReactFrontEnd/client/constants",
+		"/Users/thangtrinh/Workspace/ReactWorkspace/vnptReactFrontEnd/client/containers",
+		"/Users/thangtrinh/Workspace/ReactWorkspace/vnptReactFrontEnd/client/containers/CreateMetacontent",
+		"/Users/thangtrinh/Workspace/ReactWorkspace/vnptReactFrontEnd/client/reducers",
+		"/Users/thangtrinh/Workspace/ReactWorkspace/vnptReactFrontEnd/client/sagas",
+		"/Users/thangtrinh/Workspace/ReactWorkspace/vnptReactFrontEnd/client/store"
+	],
+	"file_history":
+	[
+		"/Users/thangtrinh/Workspace/ReactWorkspace/vnptReactFrontEnd/client/apis/Metacontents.js",
+		"/Users/thangtrinh/Workspace/ReactWorkspace/vnptReactFrontEnd/client/reducers/index.js",
+		"/Users/thangtrinh/Workspace/ReactWorkspace/vnptReactFrontEnd/client/actions/index.js",
+		"/Users/thangtrinh/Workspace/ReactWorkspace/vnptReactFrontEnd/client/components/CreateMetacontent/newsMetacontentsResult.js",
+		"/Users/thangtrinh/Workspace/ReactWorkspace/vnptReactFrontEnd/client/containers/CreateMetacontent/index.js",
+		"/Users/thangtrinh/Workspace/ReactWorkspace/vnptReactFrontEnd/client/components/CreateMetacontent/categoryRadioGroup.js",
+		"/Users/thangtrinh/Workspace/ReactWorkspace/vnptReactFrontEnd/client/index.js",
+		"/Users/thangtrinh/Workspace/ReactWorkspace/vnptReactFrontEnd/client/components/CreateMetacontent/index.js",
+		"/Users/thangtrinh/Workspace/ReactWorkspace/vnptReactFrontEnd/client/components/CreateMetacontent/channelPicker.js",
+		"/Users/thangtrinh/Workspace/ReactWorkspace/vnptReactFrontEnd/client/components/CreateMetacontent/newsProviderPicker.js",
+		"/Users/thangtrinh/Workspace/ReactWorkspace/vnptReactFrontEnd/client/components/Header/index.js",
+		"/Users/thangtrinh/Workspace/ReactWorkspace/vnptReactFrontEnd/client/components/Metacontents/index.js",
+		"/Users/thangtrinh/Workspace/ReactWorkspace/vnptReactFrontEnd/client/components/Metacontents/style.css",
+		"/Users/thangtrinh/Workspace/ReactWorkspace/vnptReactFrontEnd/client/containers/App/index.js",
+		"/Users/thangtrinh/Workspace/ReactWorkspace/vnptReactFrontEnd/client/components/Channels/channelsTable.js",
+		"/Users/thangtrinh/Workspace/ReactWorkspace/vnptReactFrontEnd/client/containers/Metacontents/index.js",
+		"/Users/thangtrinh/Workspace/ReactWorkspace/vnptReactFrontEnd/client/containers/Metacontents/style.css",
+		"/Users/thangtrinh/Workspace/ReactWorkspace/vnptReactFrontEnd/client/components/Channels/index.js",
+		"/Users/thangtrinh/Workspace/ReactWorkspace/vnptReactFrontEnd/client/containers/Channels/index.js",
+		"/Users/thangtrinh/Workspace/ReactWorkspace/vnptReactFrontEnd/client/sagas/index.js",
+		"/Users/thangtrinh/Workspace/ReactWorkspace/vnptReactFrontEnd/client/store/configureStore.dev.js",
+		"/Users/thangtrinh/Workspace/ReactWorkspace/vnptReactFrontEnd/client/store/configureStore.prod.js",
+		"/Users/thangtrinh/Workspace/ReactWorkspace/vnptReactFrontEnd/client/components/Metacontents/metacontentsTable.js",
+		"/Users/thangtrinh/Workspace/ReactWorkspace/vnptReactFrontEnd/client/components/Metacontents/CreateMetacontent.js",
+		"/Users/thangtrinh/Workspace/ReactWorkspace/vnptReactFrontEnd/client/apis/index.js",
+		"/Users/thangtrinh/Workspace/ReactWorkspace/vnptReactFrontEnd/package.json",
+		"/Users/thangtrinh/Workspace/ReactWorkspace/vnptReactFrontEnd/client/apis/Navigate.js",
+		"/Users/thangtrinh/Workspace/ReactWorkspace/real-world-saga/actions/index.js",
+		"/Users/thangtrinh/Workspace/ReactWorkspace/real-world-saga/containers/UserPage.js",
+		"/Users/thangtrinh/Workspace/ReactWorkspace/real-world-saga/reducers/index.js",
+		"/Users/thangtrinh/Workspace/ReactWorkspace/real-world-saga/sagas/index.js",
+		"/Users/thangtrinh/Workspace/ReactWorkspace/vnptReactFrontEnd/client/components/Channels/style.css",
+		"/Users/thangtrinh/Workspace/ReactWorkspace/vnptReactFrontEnd/client/components/Channels/channel.js",
+		"/Users/thangtrinh/Workspace/ReactWorkspace/vnptReactFrontEnd/client/reducers/todos.js",
+		"/Users/thangtrinh/Workspace/ReactWorkspace/vnptReactFrontEnd/client/apis/Channels.js",
+		"/Users/thangtrinh/Workspace/ReactWorkspace/vnptReactFrontEnd/client/actions/todos.js",
+		"/Users/thangtrinh/Workspace/ReactWorkspace/vnptReactFrontEnd/client/components/Channel/index.js",
+		"/Users/thangtrinh/Workspace/ReactWorkspace/vnptReactFrontEnd/client/index.html",
+		"/Users/thangtrinh/Workspace/ReactWorkspace/vnptReactFrontEnd/client/components/Footer/index.js",
+		"/Users/thangtrinh/Workspace/ReactWorkspace/vnptReactFrontEnd/client/components/MainSection/index.js",
+		"/Users/thangtrinh/Workspace/ReactWorkspace/vnptReactFrontEnd/.eslintrc.js",
+		"/Users/thangtrinh/Workspace/ReactWorkspace/vnptReactFrontEnd/.babelrc",
+		"/Users/thangtrinh/Workspace/ReactWorkspace/vnptReactFrontEnd/client/containers/App/style.css",
+		"/Users/thangtrinh/Workspace/ReactWorkspace/vnptReactFrontEnd/client/components/Footer/style.css",
+		"/Users/thangtrinh/Workspace/ReactWorkspace/vnptReactFrontEnd/client/components/MainSection/style.css",
+		"/Users/thangtrinh/Workspace/nodejs_workspace/vnpt_epg/.eslintrc.js",
+		"/Users/thangtrinh/Workspace/nodejs_workspace/vnpt_epg/testcron.js",
+		"/Users/thangtrinh/Workspace/nodejs_workspace/vnpt_epg/init_local_wiki_title.js",
+		"/Users/thangtrinh/Workspace/ScrapyProjects/scrape_vne/cron_jobs.sh",
+		"/Users/thangtrinh/Workspace/elasticsearch-2.4.0/config/elasticsearch.yml",
+		"/Users/thangtrinh/Workspace/ScrapyProjects/scrape_vne/scrape_vne/items.py",
+		"/Users/thangtrinh/Workspace/PythonWorkspace/python-for-android/build/lib/pythonforandroid/bootstraps/sdl2/build/AndroidManifest.xml",
+		"/Users/thangtrinh/Workspace/PythonWorkspace/python-for-android/pythonforandroid/bootstraps/sdl2/build/templates/AndroidManifest.tmpl.xml",
+		"/Users/thangtrinh/Workspace/PythonWorkspace/Kivy-Tutorials-master/7_Android_Intent/.buildozer/android/platform/build/dists/share/tmp-src/org/renpy/android/ResourceManagerForService.java",
+		"/Users/thangtrinh/.bash_profile",
+		"/Users/thangtrinh/Workspace/PythonWorkspace/python-for-android/pythonforandroid/recipes/youtube-dl/fix_isatty.patch",
+		"/Users/thangtrinh/Workspace/PythonWorkspace/Kivy-Tutorials-master/7_Android_Intent/.buildozer/android/platform/build/build/other_builds/youtube-dl/armeabi-v7a/youtube-dl/youtube_dl/YoutubeDL.py",
+		"/Users/thangtrinh/Workspace/PythonWorkspace/Kivy-Tutorials-master/7_Android_Intent/buildozer.spec",
+		"/Users/thangtrinh/Library/Application Support/Sublime Text 3/Packages/User/SublimeLinter.sublime-settings",
+		"/Users/thangtrinh/Workspace/ScrapyProjects/scrape_vne/items.json",
+		"/Users/thangtrinh/Workspace/nodejs_workspace/vnpt_epg/server.js",
+		"/Users/thangtrinh/Workspace/nodejs_workspace/vnpt_epg/models/Channel.js",
+		"/Users/thangtrinh/Workspace/nodejs_workspace/vnpt_epg/.eslintrc.json",
+		"/Users/thangtrinh/Workspace/nodejs_workspace/vnpt_epg/.eslintrc",
+		"/Users/thangtrinh/Workspace/nodejs_workspace/vnpt_epg/vnexpress_scrape.js",
+		"/Users/thangtrinh/Workspace/nodejs_workspace/vnpt_epg/fakeserver.js",
+		"/Users/thangtrinh/Workspace/nodejs_workspace/vnpt_epg/testasync.js",
+		"/Users/thangtrinh/Workspace/nodejs_workspace/vnpt_epg/.babelrc",
+		"/Users/thangtrinh/Workspace/nodejs_workspace/vnpt_epg/index.js",
+		"/Users/thangtrinh/Workspace/nodejs_workspace/vnpt_epg/package.json",
+		"/Users/thangtrinh/Library/Application Support/Sublime Text 3/Packages/User/Preferences.sublime-settings",
+		"/Users/thangtrinh/Workspace/ReactWorkspace/saga-login-flow/app/styles/main.css",
+		"/Users/thangtrinh/Workspace/ReactWorkspace/saga-login-flow/app/styles/components/_home.css",
+		"/Users/thangtrinh/Workspace/ReactWorkspace/saga-login-flow/app/auth/index.js",
+		"/Users/thangtrinh/Workspace/ReactWorkspace/saga-login-flow/app/actions/index.js",
+		"/Users/thangtrinh/Workspace/ReactWorkspace/saga-login-flow/app/styles/components/_buttons.css",
+		"/Users/thangtrinh/Workspace/ReactWorkspace/saga-login-flow/app/styles/components/_channels.css",
+		"/Users/thangtrinh/Workspace/ReactWorkspace/saga-login-flow/app/components/common/Nav.js",
+		"/Users/thangtrinh/Workspace/ReactWorkspace/saga-login-flow/app/components/Channels.js",
+		"/Users/thangtrinh/Workspace/ReactWorkspace/saga-login-flow/index.html",
+		"/Users/thangtrinh/Workspace/ReactWorkspace/saga-login-flow/webpack/makeConfig.js",
+		"/Users/thangtrinh/Workspace/ReactWorkspace/saga-login-flow/app/apis/Channels.js",
+		"/Users/thangtrinh/Workspace/ReactWorkspace/saga-login-flow/app/sagas/index.js",
+		"/Users/thangtrinh/Workspace/ReactWorkspace/saga-login-flow/app/reducers/index.js",
+		"/Users/thangtrinh/Workspace/ReactWorkspace/saga-login-flow/app/index.js",
+		"/Users/thangtrinh/Workspace/ReactWorkspace/saga-login-flow/app/components/Login.js",
+		"/Users/thangtrinh/Workspace/ReactWorkspace/saga-login-flow/app/components/Sidebar.js",
+		"/Users/thangtrinh/Workspace/ReactWorkspace/saga-login-flow/app/actions/constants.js",
+		"/Users/thangtrinh/Workspace/ReactWorkspace/saga-login-flow/app/styles/components/_nav.css",
+		"/Users/thangtrinh/Workspace/ReactWorkspace/saga-login-flow/app/styles/utils/_variables.css",
+		"/Users/thangtrinh/Workspace/ReactWorkspace/saga-login-flow/app/styles/components/_sidebar.css",
+		"/Users/thangtrinh/Workspace/ReactWorkspace/saga-login-flow/app/components/App.js",
+		"/Users/thangtrinh/Workspace/ReactWorkspace/saga-login-flow/app/styles/base/_base.css",
+		"/Users/thangtrinh/Workspace/ReactWorkspace/saga-login-flow/app/components/Dashboard.js",
+		"/Users/thangtrinh/Workspace/ReactWorkspace/saga-login-flow/test/actions.js",
+		"/Users/thangtrinh/Workspace/ReactWorkspace/saga-login-flow/test/sagas.js",
+		"/Users/thangtrinh/Workspace/ReactWorkspace/saga-login-flow/app/components/Home.js",
+		"/Users/thangtrinh/Workspace/ReactWorkspace/react-auth-server/package.json",
+		"/Users/thangtrinh/Workspace/ReactWorkspace/react-auth-server/server.js",
+		"/Users/thangtrinh/Workspace/ReactWorkspace/saga-login-flow/test/auth/register.js",
+		"/Users/thangtrinh/Workspace/ReactWorkspace/saga-login-flow/package.json",
+		"/Users/thangtrinh/Workspace/ReactWorkspace/saga-login-flow/app/auth/fakeRequest.js",
+		"/Users/thangtrinh/Workspace/ReactWorkspace/saga-login-flow/app/auth/fakeServer.js",
+		"/Users/thangtrinh/Workspace/ReactWorkspace/react-login-frontend/node_modules/chai/karma.sauce.js",
+		"/Users/thangtrinh/Workspace/ReactWorkspace/vnpt_frontend/src/components/Contacts.js",
+		"/Users/thangtrinh/Workspace/ReactWorkspace/vnpt_frontend/src/components/ContactListItem.js",
+		"/Users/thangtrinh/Workspace/ReactWorkspace/vnpt_frontend/src/components/Sidebar.js",
+		"/Users/thangtrinh/Workspace/ReactWorkspace/saga-login-flow/.babelrc",
+		"/Users/thangtrinh/Workspace/ReactWorkspace/vnpt_frontend/src/index.js",
+		"/Users/thangtrinh/Workspace/ReactWorkspace/vnpt_frontend/src/components/App.js",
+		"/Users/thangtrinh/Workspace/ReactWorkspace/vnpt_frontend/src/dispatcher/AppDispatcher.js",
+		"/Users/thangtrinh/Workspace/ReactWorkspace/vnpt_frontend/src/actions/ContactActions.js",
+		"/Users/thangtrinh/Workspace/ReactWorkspace/vnpt_frontend/src/constants/ContactConstants.js",
+		"/Users/thangtrinh/Workspace/ReactWorkspace/vnpt_frontend/src/utils/ContactsAPI.js",
+		"/Users/thangtrinh/Workspace/ReactWorkspace/vnpt_frontend/src/stores/ContactStore.js",
+		"/Users/thangtrinh/Workspace/ReactWorkspace/vnpt_frontend/src/index.html",
+		"/Users/thangtrinh/Workspace/ReactWorkspace/vnpt_frontend/src/Root.js",
+		"/Users/thangtrinh/Workspace/ReactWorkspace/vnpt_frontend/cfg/defaults.js",
+		"/Users/thangtrinh/Workspace/ReactWorkspace/vnpt_frontend/src/components/Header.js",
+		"/Users/thangtrinh/Workspace/ReactWorkspace/vnpt_frontend/src/components/Index.js",
+		"/Users/thangtrinh/Workspace/ReactWorkspace/vnpt_frontend/stormpath.yml",
+		"/Users/thangtrinh/Workspace/ReactWorkspace/vnpt_frontend/server.js",
+		"/Users/thangtrinh/Workspace/web_workspace/example2.html",
+		"/Users/thangtrinh/Workspace/nodejs_workspace/vnpt_epg/models/index.js",
+		"/Users/thangtrinh/Workspace/nodejs_workspace/vnpt_epg/test_wk.js",
+		"/Users/thangtrinh/Workspace/web_workspace/example.html",
+		"/Applications/MAMP/my.cnf",
+		"/Applications/MAMP/db/mysql/auto.cnf"
+	],
+	"find":
+	{
+		"height": 48.0
+	},
+	"find_in_files":
+	{
+		"height": 93.0,
+		"where_history":
+		[
+			"<current file>,<open folders>",
+			"<current file>,/Users/thangtrinh/Workspace/ReactWorkspace/saga-login-flow/app/styles/base,/Users/thangtrinh/Workspace/ReactWorkspace/saga-login-flow/app/styles/components,/Users/thangtrinh/Workspace/ReactWorkspace/saga-login-flow/app/styles/layout,/Users/thangtrinh/Workspace/ReactWorkspace/saga-login-flow/app/styles/utils,/Users/thangtrinh/Workspace/ReactWorkspace/saga-login-flow/app/styles/vendor",
+			"<current file>,<open folders>,/Users/thangtrinh/Workspace/ReactWorkspace/saga-login-flow/app/styles",
+			"<current file>,<open folders>",
+			"<current file>,/Users/thangtrinh/Workspace/ReactWorkspace/saga-login-flow/app,/Users/thangtrinh/Workspace/ReactWorkspace/saga-login-flow/test,/Users/thangtrinh/Workspace/ReactWorkspace/saga-login-flow/webpack",
+			"<current file>,/Users/thangtrinh/Workspace/ReactWorkspace/saga-login-flow/app,/Users/thangtrinh/Workspace/ReactWorkspace/saga-login-flow/node_modules,/Users/thangtrinh/Workspace/ReactWorkspace/saga-login-flow/test,/Users/thangtrinh/Workspace/ReactWorkspace/saga-login-flow/webpack",
+			"<current file>,<open folders>",
+			"<current file>",
+			"<current file>,<open folders>,/Users/thangtrinh/Workspace/PythonWorkspace/python-for-android/pythonforandroid/bootstraps/sdl2",
+			"<current file>,<open folders>",
+			"<current file>",
+			""
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"selectedChannel",
+			"name",
+			"submitMetacontent",
+			"searchMetacontent",
+			"handleSearch",
+			"input",
+			"handleSearch",
+			"getInputValue",
+			"Proptypes",
+			"handleSearch",
+			"handleCategoryChange",
+			"className",
+			";",
+			"lodash",
+			"bindActionCreators",
+			"navigate",
+			"router",
+			"routing",
+			"entities",
+			"pagination",
+			"updatePaginationByKey",
+			"success",
+			"window",
+			"getUser",
+			"loadUser",
+			"actions.",
+			"loadUser",
+			"fetchUser",
+			"user\nuser",
+			"user",
+			"user.request",
+			"shape",
+			"loadUserPage",
+			"loadUser",
+			"select",
+			"watchLoadUserPage",
+			"rootSaga",
+			"root",
+			"paginate",
+			"selectors",
+			"selector",
+			"login",
+			"loadUserPage",
+			"createRequestTypes",
+			"login",
+			"watchLoadUserPage",
+			"loadUser",
+			"fetchUser",
+			"login",
+			"loadStarred",
+			"pagination",
+			"entities",
+			"errorMessage",
+			"user.request",
+			"ChannelsContainer",
+			"view",
+			"className",
+			"header",
+			"user.request",
+			"navigate",
+			"loadUserPage",
+			"state",
+			"esclient",
+			"delete",
+			"channels/:channel",
+			"wiki",
+			"esclient",
+			"then",
+			"nodemw",
+			"knex",
+			"express",
+			"bluebird",
+			"request",
+			"cron",
+			"name",
+			"wiki",
+			"client",
+			"\\t",
+			"8889",
+			"knex",
+			"wiki",
+			"unpackData",
+			"youtube-dl",
+			"p4a",
+			"isatty",
+			"patch",
+			"\"",
+			";",
+			"\"",
+			"rule",
+			"metacontens",
+			"metacontents",
+			"metacontents/",
+			"post",
+			"put",
+			"metacontents/:",
+			"metacontents",
+			"keyword",
+			"vne",
+			"news",
+			"delete",
+			"Metacontent.",
+			"metacontents",
+			"aa",
+			"getChannelsList",
+			"channels",
+			"Sidenav",
+			"checkAuth",
+			"margin-bottom",
+			"30px",
+			"30",
+			"padding49",
+			"css",
+			"style",
+			"Home",
+			"Dashboard",
+			"Login Flow",
+			"register",
+			"authorize",
+			"gen",
+			"auth.login",
+			"package.json",
+			"request",
+			"loggedIn",
+			"token",
+			"string",
+			"compareSync",
+			"auth/index"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": true,
+		"replace_history":
+		[
+			"PropTypes",
+			"onSearch",
+			"onCategoryChange",
+			"",
+			"  ",
+			"'",
+			"",
+			"'",
+			"DB_NAME",
+			"mService",
+			"\\&",
+			"",
+			" ",
+			"",
+			"\"",
+			"_",
+			"\",\"",
+			"}",
+			"{",
+			"kenlm"
+		],
+		"reverse": false,
+		"show_context": false,
+		"use_buffer2": false,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 2,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "/Users/thangtrinh/Workspace/ReactWorkspace/vnptReactFrontEnd/client/sagas/index.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2710,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1190,
+								1190
+							]
+						],
+						"settings":
+						{
+							"auto_complete": false,
+							"syntax": "Packages/Babel/JavaScript (Babel).sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 8,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "/Users/thangtrinh/Workspace/ReactWorkspace/vnptReactFrontEnd/client/containers/CreateMetacontent/index.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 3715,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								759,
+								759
+							]
+						],
+						"settings":
+						{
+							"auto_complete": false,
+							"syntax": "Packages/Babel/JavaScript (Babel).sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 3,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "/Users/thangtrinh/Workspace/ReactWorkspace/vnptReactFrontEnd/client/reducers/index.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2147,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								911,
+								911
+							]
+						],
+						"settings":
+						{
+							"auto_complete": false,
+							"syntax": "Packages/Babel/JavaScript (Babel).sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 1.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "/Users/thangtrinh/Workspace/ReactWorkspace/vnptReactFrontEnd/client/components/CreateMetacontent/categoryRadioGroup.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1328,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								702,
+								702
+							]
+						],
+						"settings":
+						{
+							"auto_complete": false,
+							"syntax": "Packages/Babel/JavaScript (Babel).sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 7,
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "/Users/thangtrinh/Workspace/ReactWorkspace/vnptReactFrontEnd/client/components/Header/index.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2084,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1849,
+								1849
+							]
+						],
+						"settings":
+						{
+							"auto_complete": false,
+							"syntax": "Packages/Babel/JavaScript (Babel).sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 6,
+					"type": "text"
+				}
+			]
+		},
+		{
+			"selected": 1,
+			"sheets":
+			[
+				{
+					"buffer": 5,
+					"file": "/Users/thangtrinh/Workspace/ReactWorkspace/vnptReactFrontEnd/client/components/CreateMetacontent/index.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 3273,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								563,
+								563
+							]
+						],
+						"settings":
+						{
+							"auto_complete": false,
+							"syntax": "Packages/Babel/JavaScript (Babel).sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 111.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 6,
+					"file": "/Users/thangtrinh/Workspace/ReactWorkspace/vnptReactFrontEnd/client/components/Metacontents/metacontentsTable.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1780,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								413,
+								420
+							]
+						],
+						"settings":
+						{
+							"auto_complete": false,
+							"syntax": "Packages/Babel/JavaScript (Babel).sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 528.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 7,
+					"file": "/Users/thangtrinh/Workspace/ReactWorkspace/vnptReactFrontEnd/client/components/CreateMetacontent/metacontentsResult.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1557,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1199,
+								1203
+							]
+						],
+						"settings":
+						{
+							"auto_complete": false,
+							"syntax": "Packages/Babel/JavaScript (Babel).sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 4,
+					"type": "text"
+				},
+				{
+					"buffer": 8,
+					"file": "/Users/thangtrinh/Workspace/ReactWorkspace/vnptReactFrontEnd/client/components/CreateMetacontent/channelPicker.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 843,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								809,
+								809
+							]
+						],
+						"settings":
+						{
+							"auto_complete": false,
+							"syntax": "Packages/Babel/JavaScript (Babel).sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 5,
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 29.0
+	},
+	"input":
+	{
+		"height": 31.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			],
+			[
+				1,
+				0,
+				2,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			0.5,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.exec":
+	{
+		"height": 100.0
+	},
+	"output.find_results":
+	{
+		"height": 299.0
+	},
+	"pinned_build_system": "",
+	"project": "vnptReactFrontEnd.sublime-project",
+	"replace":
+	{
+		"height": 92.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"androidman",
+				"pythonforandroid/bootstraps/sdl2/build/templates/AndroidManifest.tmpl.xml"
+			],
+			[
+				"androidm",
+				"build/lib/pythonforandroid/bootstraps/sdl2/build/AndroidManifest.xml"
+			],
+			[
+				"resourcemanagerf",
+				"pythonforandroid/bootstraps/sdl2/build/src/org/renpy/android/ResourceManagerForService.java"
+			],
+			[
+				"metacontent",
+				"src/app/Http/Controllers/MetacontentController.php"
+			],
+			[
+				"setup.py",
+				"~/Workspace/PythonWorkspace/python-for-android/setup.py"
+			],
+			[
+				"pythonutil",
+				"build/lib/pythonforandroid/bootstraps/sdl2/build/src/org/kivy/android/PythonUtil.java"
+			],
+			[
+				"pythonu",
+				"bootstraps/sdl2/build/src/org/kivy/android/PythonUtil.java"
+			],
+			[
+				"frame",
+				"codec/decoder/core/inc/dec_frame.h"
+			],
+			[
+				"displaymanager",
+				"java/com/android/server/display/DisplayManagerService.java"
+			],
+			[
+				"displaydevice",
+				"DisplayDevice.cpp"
+			],
+			[
+				"trans",
+				"Transform.cpp"
+			],
+			[
+				"di",
+				"DisplayDevice.h"
+			],
+			[
+				"surfa",
+				"SurfaceFlinger.cpp"
+			]
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 261.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}
