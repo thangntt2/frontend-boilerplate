@@ -14,7 +14,7 @@ export default function configureStore(initialState) {
     applyMiddleware(
       sagaMiddleware,
       router,
-    )
+    ),
   )
 
   store.runSaga = sagaMiddleware.run

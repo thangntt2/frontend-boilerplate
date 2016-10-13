@@ -2,6 +2,7 @@
 import { combineReducers } from 'redux'
 import { routerReducer as routing } from 'react-router-redux'
 import * as ActionTypes from '../actions'
+import auth from './auth'
 // import fetchData from './fetchData'
 
 function entities(state = { channels: [], metacontents: [], keywords: [] }, action) {
@@ -14,39 +15,36 @@ function entities(state = { channels: [], metacontents: [], keywords: [] }, acti
   return state
 }
 
-function submitData(state = { submiting: false, success: '', error: '' }, action) {
+function submitData(state = { submiting: false }, action) {
   if (action.type.includes('SUBMIT')) {
-    if (action.error) {
-      return ({
-        ...state,
-        ...action.error,
-      })
-    }
     if (action.data) { // mean searching
       return ({
         ...state,
         submiting: true,
       })
     }
-    if (action.success) {
+    if (action.success || action.error) {
       return ({
         ...state,
         submiting: false,
-        success: action.success,
       })
     }
-    if (action.error) {
+  }
+  return state
+}
+
+function deleteData(state = { deletting: false }, action) {
+  if (action.type.includes('DELETE')) {
+    if (action.id) { // mean deletting
       return ({
         ...state,
-        submiting: false,
-        error: action.error,
+        deletting: true,
       })
     }
-    if (action.type === 'SUBMIT_CLEAN_REPORT') {
+    if (action.success || action.error) {
       return ({
         ...state,
-        success: '',
-        error: '',
+        deletting: false,
       })
     }
   }
@@ -96,13 +94,18 @@ function searchMetacontent(state = {
 }
 
 // Updates error message to notify about the failed fetches.
-function errorMessage(state = null, action) {
-  const { type, error } = action
+function message(state = { success: undefined, error: undefined }, action) {
+  const { type, error, success } = action
 
-  if (type === ActionTypes.RESET_ERROR_MESSAGE) {
-    return null
+  if (type === ActionTypes.RESET_MESSAGE) {
+    return {
+      success: undefined,
+      error: undefined,
+    }
   } else if (error) {
-    return action.error
+    return { error: error.text }
+  } else if (success) {
+    return { success }
   }
 
   return state
@@ -110,10 +113,12 @@ function errorMessage(state = null, action) {
 
 const rootReducer = combineReducers({
   entities,
-  errorMessage,
+  message,
   routing,
   searchMetacontent,
   submitData,
+  auth,
+  deleteData,
 })
 
 export default rootReducer

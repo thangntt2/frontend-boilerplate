@@ -1,0 +1,9 @@
+.children {
+  margin-top: 80px;
+}
+
+.fixAlert {
+  position: absolute;
+  width: 100%;
+  z-index: 9999;
+}

@@ -3,62 +3,43 @@ const request = require('superagent')
 
 const API_BASE = 'http://54.148.247.77:8089/api/'
 
-export const fetchMetacontentsList = () =>
+export const fetchMetacontentsList = accessToken =>
   request.get(`${API_BASE}/metacontents`)
-    .then(response => ({ metacontents: response.body }))
+    .set('Authorization', accessToken)
+    .then(response => ({ response: { metacontents: response.body } }))
+    .catch(error => ({ error }))
 
-export const getMetacontent = id =>
-  request.get(`${API_BASE}/metacontent/${id}`)
-    .then(response => response.body)
-
-// export function getMetacontent(id) {
-//   return new Promise(function(resolve, reject) {
-//     brrequest.get({
-//       uri: 'http://54.148.247.77:8089/api/metacontent/' + id,
-//     }, function(err, response, body) {
-//       if (err)
-//         reject(err)
-//       resolve(JSON.parse(body))
-//     })
-//   })
-// }
-
-export function searchWikiMetacontents(name) {
+export function searchWikiMetacontents(name, accessToken) {
   return request.get(`${API_BASE}/metacontents/search_wiki`)
     .query({ entity: JSON.stringify(name) })
-    .then(response => response.body)
+    .set('Authorization', accessToken)
+    .then(response => ({ response: response.body }))
+    .catch(error => ({ error }))
 }
 
-export function searchNewsMetacontents(name, sites) {
+export function searchNewsMetacontents(name, sites, accessToken) {
   return request.get(`${API_BASE}/metacontents/search_news`)
     .query({ entity: name })
     .query({ sites: JSON.stringify(sites) })
-    .then(response => response.body)
+    .set('Authorization', accessToken)
+    .then(response => ({ response: response.body }))
+    .catch(error => ({ error }))
 }
 
-export function submit(metacontent) {
+export function del(metacontent, accessToken) {
+  return request
+    .del(`${API_BASE}/channels/${metacontent.channelId}/metacontents`)
+    .set('Authorization', accessToken)
+    .send({ id: metacontent.id })
+    .then(response => ({ response }))
+    .catch(error => ({ error }))
+}
+
+export function submit(metacontent, accessToken) {
   return request
     .post(`${API_BASE}channels/${metacontent.channel}/metacontents`)
+    .set('Authorization', accessToken)
     .send(metacontent)
+    .then(response => ({ response }))
+    .catch(error => ({ error }))
 }
-
-// export function putMetacontent(metacontent) {
-//   return request
-//     .put('http://54.148.247.77:8089/api/channels/'+metacontent.channel_id+'/metacontents')
-//     .send(JSON.stringify(metacontent))
-// }
-
-// export function deleteMetacontent(metacontent) {
-//   return fetch('http://54.148.247.77:8089/api/channels/'+ metacontent.ChannelId+'/metacontents',
-//     {
-//       method: 'DELETE',
-//       body: JSON.stringify({
-//         id: metacontent.id
-//       }),
-//       json:true,
-//       headers: {
-//         'Content-Type': 'application/json',
-//       }
-//     })
-//       .then(response => response.status)
-// }

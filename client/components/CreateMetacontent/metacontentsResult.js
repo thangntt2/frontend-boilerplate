@@ -2,11 +2,12 @@
 import React, { PropTypes } from 'react'
 import { Panel, ListGroup, ListGroupItem, Row, Col, Image } from 'react-bootstrap'
 import Spinner from 'react-spinkit'
+import style from './style.css'
 
 const MetacontentsResults = (props) => {
   const { result, handleClick, isSubmitting } = props
   return (
-    <div>
+    <div className={style.centerbody}>
       {isSubmitting
       ? <Spinner spinnerName="three-bounce" />
       : (

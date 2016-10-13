@@ -10,6 +10,7 @@ import { Panel,
 import { includes } from 'lodash/collection'
 import CategoryRadioGroup from './categoryRadioGroup'
 import ChannelPicker from './channelPicker'
+import style from './style.css'
 
 
 class CreateMetacontent extends React.Component {
@@ -19,6 +20,10 @@ class CreateMetacontent extends React.Component {
     this.handleSearch = this.handleSearch.bind(this)
     this.handleButtonClicked = this.handleButtonClicked.bind(this)
     this.getInputValue = this.getInputValue.bind(this)
+  }
+
+  componentWillReceiveProps() {
+    ReactDOM.findDOMNode(this.input).focus()
   }
 
   getInputValue() {
@@ -56,7 +61,7 @@ class CreateMetacontent extends React.Component {
     } = this.props
 
     return (
-      <div>
+      <div className={style.centerbody}>
         {submitSuccess && submitSuccess.length > 0 &&
           <div className="alert alert-success fade in">
             <a href="#" className="close" data-dismiss="alert" aria-label="close">&times;</a>
@@ -135,6 +140,8 @@ CreateMetacontent.propTypes = {
   onNewsProviderChange: PropTypes.func.isRequired,
   isSearching: PropTypes.bool,
   onSearch: PropTypes.func.isRequired,
+  submitSuccess: PropTypes.string,
+  submitFailure: PropTypes.string,
 }
 
 export default CreateMetacontent

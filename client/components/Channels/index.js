@@ -5,11 +5,11 @@ import style from './style.css'
 import ChannelsTable from './channelsTable'
 
 const Channels = (props) => {
-  const { channels } = props
+  const { channels, onDeleteChannel, onCreateButton } = props
   return (
     <div className={style.centerbody}>
-      <Button bsStyle="primary">Create</Button>
-      <ChannelsTable channels={channels} />
+      <Button bsStyle="primary" onClick={onCreateButton}>Create</Button>
+      <ChannelsTable channels={channels} onDeleteChannel={onDeleteChannel} />
     </div>
   )
 }
@@ -22,6 +22,8 @@ Channels.propTypes = {
       icon: PropTypes.string,
       channel: PropTypes.string,
     })),
+  onDeleteChannel: PropTypes.func.isRequired,
+  onCreateButton: PropTypes.func.isRequired,
 }
 
 export default Channels

@@ -2,6 +2,7 @@
 import React, { PropTypes } from 'react'
 import { FormControl, ControlLabel, FormGroup, Panel, Button } from 'react-bootstrap'
 import ReactDOM from 'react-dom'
+import style from './style.css'
 import ChannelPicker from '../CreateMetacontent/channelPicker'
 
 class CreateKeywords extends React.Component {
@@ -35,7 +36,7 @@ class CreateKeywords extends React.Component {
     const { channels, onChannelChange, selectedChannel, isSubmit, submitSuccess, submitFailure } = this.props
 
     return (
-      <Panel header={'Tìm kiếm'}>
+      <Panel header={'Tạo từ khóa'} className={style.centerbody}>
         {submitSuccess && submitSuccess.length > 0 &&
           <div className="alert alert-success fade in">
             <a href="#" className="close" data-dismiss="alert" aria-label="close">&times;</a>
@@ -58,7 +59,7 @@ class CreateKeywords extends React.Component {
           <ControlLabel>Tìm kiếm</ControlLabel>
           <FormControl
             type="text"
-            placeholder="Nhập để tìm kiếm"
+            placeholder="Nhập Keyword"
             ref={(c) => { this.input = c }}
             onKeyPress={this.handleEnterPress}
             autoFocus

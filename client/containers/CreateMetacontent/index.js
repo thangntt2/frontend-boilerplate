@@ -1,6 +1,7 @@
 
 import React, { PropTypes } from 'react'
 import { connect } from 'react-redux'
+import { HotKeys } from 'react-hotkeys'
 import CreateMetacontent from '../../components/CreateMetacontent'
 import { prepareCreateMetacontent, searchMetacontent, submitMetacontent } from '../../actions'
 import MetacontentResults from '../../components/CreateMetacontent/metacontentsResult'
@@ -17,6 +18,13 @@ const newsProviders = [
   'xahoithongtin.vn',
   'vnmedia.vn',
 ]
+
+const keyMap = {
+  location: 'ctrl+1',
+  person: 'ctrl+2',
+  organization: 'ctrl+3',
+  article: 'ctrl+4',
+}
 
 class CreateMetacontentContainer extends React.Component {
   constructor(props) {
@@ -57,6 +65,12 @@ class CreateMetacontentContainer extends React.Component {
       })
     }
   }
+  handlers = {
+    location: () => { this.setState({ selectedCategory: 'location' }) },
+    person: () => { this.setState({ selectedCategory: 'person' }) },
+    organization: () => { this.setState({ selectedCategory: 'organization' }) },
+    article: () => { this.setState({ selectedCategory: 'article' }) },
+  }
 
   handleClickResult(metacontent) {
     const mt = {
@@ -85,7 +99,7 @@ class CreateMetacontentContainer extends React.Component {
       submitFailure,
     } = this.props
     return (
-      <div>
+      <HotKeys keyMap={keyMap} handlers={this.handlers}>
         <CreateMetacontent
           channels={channels}
           selectedChannel={this.state.selectedChannel}
@@ -108,7 +122,7 @@ class CreateMetacontentContainer extends React.Component {
             isSubmitting={submiting}
           />
         }
-      </div>
+      </HotKeys>
     )
   }
 }

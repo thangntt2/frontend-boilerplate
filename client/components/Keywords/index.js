@@ -5,7 +5,7 @@ import style from './style.css'
 import KeywordsTable from './keywordsTable'
 
 const Keywords = (props) => {
-  const { channels, keywords, handleCreateButton } = props
+  const { channels, keywords, handleCreateButton, onDeleteKeyword } = props
   return (
     <div className={style.centerbody}>
       <Button bsStyle="primary" onClick={handleCreateButton}>Create</Button>
@@ -15,6 +15,7 @@ const Keywords = (props) => {
       <KeywordsTable
         channels={channels}
         keywords={keywords}
+        onDeleteKeyword={onDeleteKeyword}
       />
     </div>
   )
@@ -24,6 +25,7 @@ Keywords.propTypes = {
   channels: PropTypes.array,
   keywords: PropTypes.array,
   handleCreateButton: PropTypes.func.isRequired,
+  onDeleteKeyword: PropTypes.func.isRequired,
 }
 
 export default Keywords

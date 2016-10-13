@@ -1,22 +1,41 @@
 
 import { connect } from 'react-redux'
 import React, { Component, PropTypes } from 'react'
-import { loadChannelsPage } from '../../actions'
+import { loadChannelsPage, deleteChannel, navigate } from '../../actions'
 import Channels from '../../components/Channels'
 
 
 class ChannelsContainer extends Component {
+  constructor(props) {
+    super(props)
+    this.handleDeleteChannel = this.handleDeleteChannel.bind(this)
+    this.handleOnCreateButton = this.handleOnCreateButton.bind(this)
+  }
+  
   componentWillMount() {
     this.props.loadChannelsPage()
   }
 
+  handleDeleteChannel(channel) {
+    this.props.deleteChannel(channel)
+  }
+
+  handleOnCreateButton() {
+    this.props.navigate('/channel/create')
+  }
+
   render() {
-    const { channels } = this.props
+    const { channels, deletting } = this.props
 
     return (
       <div>
-        { !(channels && channels.length > 0) ? null :
-          <Channels channels={channels} />
+        { !(channels) ? null :
+          <Channels
+            channels={channels}
+            onDeleteChannel={this.handleDeleteChannel}
+            deletting={deletting}
+            onCreateButton={this.handleOnCreateButton}
+          />
         }
       </div>
     )
@@ -32,15 +51,24 @@ ChannelsContainer.propTypes = {
       icon: PropTypes.string,
       channel: PropTypes.string,
     })),
+  deleteChannel: PropTypes.func.isRequired,
+  navigate: PropTypes.func.isRequired,
+  success: PropTypes.string,
+  error: PropTypes.string,
+  deletting: PropTypes.bool,
 }
 
 function mapStateToProps(state) {
   const { entities: { channels } } = state
+  const { deleteData: { deletting } } = state
   return {
     channels,
+    deletting,
   }
 }
 
 export default connect(mapStateToProps, {
   loadChannelsPage,
+  deleteChannel,
+  navigate,
 })(ChannelsContainer)

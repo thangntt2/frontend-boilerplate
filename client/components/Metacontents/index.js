@@ -5,7 +5,7 @@ import style from './style.css'
 import MetacontentsTable from './metacontentsTable'
 
 const Metacontents = (props) => {
-  const { channels, metacontents, handleCreateButton } = props
+  const { channels, metacontents, handleCreateButton, onDeleteMetacontent } = props
   return (
     <div className={style.centerbody}>
       <Button bsStyle="primary" onClick={handleCreateButton}>Create</Button>
@@ -15,6 +15,7 @@ const Metacontents = (props) => {
       <MetacontentsTable
         channels={channels}
         metacontents={metacontents}
+        onDeleteMetacontent={onDeleteMetacontent}
       />
     </div>
   )
@@ -24,6 +25,7 @@ Metacontents.propTypes = {
   channels: PropTypes.array,
   metacontents: PropTypes.array,
   handleCreateButton: PropTypes.func.isRequired,
+  onDeleteMetacontent: PropTypes.func.isRequired,
 }
 
 export default Metacontents
