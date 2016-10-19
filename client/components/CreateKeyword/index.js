@@ -2,7 +2,7 @@
 import React, { PropTypes } from 'react'
 import { FormControl, ControlLabel, FormGroup, Panel, Button } from 'react-bootstrap'
 import ReactDOM from 'react-dom'
-import style from './style.css'
+import style from '../../style/style.css'
 import ChannelPicker from '../CreateMetacontent/channelPicker'
 
 class CreateKeywords extends React.Component {

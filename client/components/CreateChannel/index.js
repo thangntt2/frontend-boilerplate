@@ -2,7 +2,7 @@
 import React, { PropTypes } from 'react'
 import { Panel, FormGroup, FormControl, ControlLabel, Button } from 'react-bootstrap'
 import ReactDOM from 'react-dom'
-import style from './style.css'
+import style from '../../style/style.css'
 
 class CreateChannel extends React.Component {
   constructor(props) {

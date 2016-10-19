@@ -1,10 +1,13 @@
 
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { Alert } from 'react-bootstrap'
+import { MuiThemeProvider } from 'material-ui'
+import injectTapEventPlugin from 'react-tap-event-plugin'
 import Header from '../../components/Header'
 import style from './style.css'
 import { navigate } from '../../actions'
+
+injectTapEventPlugin()
 
 class App extends Component {
   constructor(props) {
@@ -17,29 +20,22 @@ class App extends Component {
   }
 
   render() {
-    const { children, location, auth, success, error } = this.props
+    const { children, location, auth } = this.props
     const loggedIn = auth.access_token && auth.expires_on > new Date().getTime()
     return (
-      <div className={style.normal}>
-        <Header
-          onChangeTab={this.handleChangePath}
-          path={location.pathname}
-          loggedIn={loggedIn}
-        />
-        {success && success.length > 0 &&
-          <Alert className={style.fixAlert} bsStyle="success">
-            {success}
-          </Alert>
-        }
-        {error && error.length > 0 &&
-          <Alert className={style.fixAlert} bsStyle="danger">
-            {error}
-          </Alert>
-        }
-        <div className={style.children}>
-          {children}
+      <MuiThemeProvider>
+        <div className={style.normal}>
+          <Header
+            onChangeTab={this.handleChangePath}
+            path={location.pathname}
+            loggedIn={loggedIn}
+            zDepth={1}
+          />
+          <div className={style.children}>
+            {children}
+          </div>
         </div>
-      </div>
+      </MuiThemeProvider>
     )
   }
 }

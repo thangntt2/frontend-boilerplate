@@ -2,14 +2,6 @@
   margin-top: 50px;
 }
 
-.centerbody {
-  background: #fff;
-  margin: 0 auto;
-  position: relative;
-  min-width: 550px;
-  max-width: 1200px;
-}
-
 .img {
   max-height: 100px;
   width: auto;

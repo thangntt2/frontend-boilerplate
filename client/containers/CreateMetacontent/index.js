@@ -1,10 +1,13 @@
 
 import React, { PropTypes } from 'react'
 import { connect } from 'react-redux'
-import { HotKeys } from 'react-hotkeys'
+import { Motion, spring } from 'react-motion'
+import { Responsive, WidthProvider } from 'react-grid-layout'
 import CreateMetacontent from '../../components/CreateMetacontent'
 import { prepareCreateMetacontent, searchMetacontent, submitMetacontent } from '../../actions'
 import MetacontentResults from '../../components/CreateMetacontent/metacontentsResult'
+
+const ResponsiveReactGridLayout = WidthProvider(Responsive)
 
 const categories = [
   { name: 'Địa danh', value: 'location' },
@@ -19,12 +22,22 @@ const newsProviders = [
   'vnmedia.vn',
 ]
 
-const keyMap = {
-  location: 'ctrl+1',
-  person: 'ctrl+2',
-  organization: 'ctrl+3',
-  article: 'ctrl+4',
-}
+// const keyMap = {
+//   location: 'ctrl+1',
+//   person: 'ctrl+2',
+//   organization: 'ctrl+3',
+//   article: 'ctrl+4',
+// }
+
+const lg_layout = x => [
+  { i: 'search', x, y: 0, w: 4, h: 2 },
+  { i: 'results', x: x + 4, y: 0, w: x === 0 ? 8 : 0, h: 2 },
+]
+
+const sm_layout = x => [
+  { i: 'search', x, y: 0, w: 4, h: 2, static: true },
+  { i: 'results', x: x + 4, y: 0, w: x === 0 ? 8 : 0, h: 2, static: true },
+]
 
 class CreateMetacontentContainer extends React.Component {
   constructor(props) {
@@ -38,6 +51,7 @@ class CreateMetacontentContainer extends React.Component {
       selectedCategory: categories[0].value,
       selectedChannel: 0,
       selectednewsProviders: newsProviders,
+      x: 4,
     }
   }
 
@@ -49,8 +63,8 @@ class CreateMetacontentContainer extends React.Component {
     this.setState({ selectedCategory: e.target.value })
   }
 
-  handleChannelChange(e) {
-    this.setState({ selectedChannel: parseInt(e.target.value, 10) })
+  handleChannelChange(event, key, value) {
+    this.setState({ selectedChannel: parseInt(value, 10) })
   }
 
   handleNewsProviderChange(e) {
@@ -82,11 +96,16 @@ class CreateMetacontentContainer extends React.Component {
   }
 
   handleSearch(searchTerm) {
-    this.props.searchMetacontent(
-      searchTerm,
-      this.state.selectedCategory,
-      this.state.selectednewsProviders,
-    )
+    // this.props.searchMetacontent(
+    //   searchTerm,
+    //   this.state.selectedCategory,
+    //   this.state.selectednewsProviders,
+    // )
+    if (this.state.x === 4) {
+      this.setState({ x: 0 })
+    } else {
+      this.setState({ x: 4 })
+    }
   }
 
   render() {
@@ -99,30 +118,43 @@ class CreateMetacontentContainer extends React.Component {
       submitFailure,
     } = this.props
     return (
-      <HotKeys keyMap={keyMap} handlers={this.handlers}>
-        <CreateMetacontent
-          channels={channels}
-          selectedChannel={this.state.selectedChannel}
-          onChannelChange={this.handleChannelChange}
-          categories={categories}
-          selectedCategory={this.state.selectedCategory}
-          onCategoryChange={this.handleCategoryChange}
-          newsProviders={newsProviders}
-          selectednewsProviders={this.state.selectednewsProviders}
-          onNewsProviderChange={this.handleNewsProviderChange}
-          isSearching={isSearching}
-          onSearch={this.handleSearch}
-          submitSuccess={submitSuccess}
-          submitFailure={submitFailure}
-        />
-        {result && result.length > 0 &&
-          <MetacontentResults
-            result={result}
-            handleClick={this.handleClickResult}
-            isSubmitting={submiting}
-          />
+      <Motion defaultStyle={{ x: 4 }} style={{ x: spring(this.state.x, { precision: 1 }) }} >
+        {interpolatingStyle =>
+          <ResponsiveReactGridLayout
+            className="layout"
+            breakpoints={{ lg: 1200, sm: 768 }}
+            cols={{ lg: 12, sm: 6 }}
+            layouts={{ lg: lg_layout(interpolatingStyle.x), sm: sm_layout(4) }}
+          >
+            <div key="search">
+              <CreateMetacontent
+                channels={channels}
+                selectedChannel={this.state.selectedChannel}
+                onChannelChange={this.handleChannelChange}
+                categories={categories}
+                selectedCategory={this.state.selectedCategory}
+                onCategoryChange={this.handleCategoryChange}
+                newsProviders={newsProviders}
+                selectednewsProviders={this.state.selectednewsProviders}
+                onNewsProviderChange={this.handleNewsProviderChange}
+                isSearching={isSearching}
+                onSearch={this.handleSearch}
+                submitSuccess={submitSuccess}
+                submitFailure={submitFailure}
+              />
+            </div>
+            <div key="results">
+              {result && result.length > 0 && interpolatingStyle.x === 0 &&
+                <MetacontentResults
+                  result={result}
+                  handleClick={this.handleClickResult}
+                  isSubmitting={submiting}
+                />
+              }
+            </div>
+          </ResponsiveReactGridLayout>
         }
-      </HotKeys>
+      </Motion>
     )
   }
 }

@@ -1,25 +1,21 @@
 
 import React, { PropTypes } from 'react'
-import { FormGroup, FormControl, ControlLabel } from 'react-bootstrap'
+import SelectField from 'material-ui/SelectField'
+import MenuItem from 'material-ui/MenuItem'
 
 const ChannelPicker = (props) => {
   const { channels, handleOptionChange, selected } = props
   return (
-    <div>
-      <FormGroup controlId="formControlsSelect">
-        <ControlLabel>Kênh</ControlLabel>
-        <FormControl
-          componentClass="select"
-          placeholder="Kênh"
-          onChange={handleOptionChange}
-          value={selected}
-        >
-          {channels.map((channel, index) =>
-            (<option key={channel.id} value={index}>{channel.name}</option>)
-          )}
-        </FormControl>
-      </FormGroup>
-    </div>
+    <SelectField
+      floatingLabelText="Kênh"
+      value={selected}
+      onChange={handleOptionChange}
+      fullWidth
+    >
+      {channels.map((channel, index) =>
+        (<MenuItem key={channel.id} value={index} primaryText={channel.name} />)
+      )}
+    </SelectField>
   )
 }
 

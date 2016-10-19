@@ -1,17 +1,15 @@
 
 import React, { PropTypes } from 'react'
 import ReactDOM from 'react-dom'
-import { Panel,
-  FormGroup,
-  FormControl,
-  ControlLabel,
-  Button,
-  Checkbox } from 'react-bootstrap'
+import { Toolbar, ToolbarGroup, ToolbarTitle } from 'material-ui/Toolbar'
 import { includes } from 'lodash/collection'
+import Checkbox from 'material-ui/Checkbox'
+import Paper from 'material-ui/Paper'
+import TextField from 'material-ui/TextField'
+import RaisedButton from 'material-ui/RaisedButton'
 import CategoryRadioGroup from './categoryRadioGroup'
 import ChannelPicker from './channelPicker'
 import style from './style.css'
-
 
 class CreateMetacontent extends React.Component {
   constructor(props) {
@@ -19,19 +17,13 @@ class CreateMetacontent extends React.Component {
     this.handleEnterPress = this.handleEnterPress.bind(this)
     this.handleSearch = this.handleSearch.bind(this)
     this.handleButtonClicked = this.handleButtonClicked.bind(this)
-    this.getInputValue = this.getInputValue.bind(this)
-  }
-
-  componentWillReceiveProps() {
-    ReactDOM.findDOMNode(this.input).focus()
-  }
-
-  getInputValue() {
-    return ReactDOM.findDOMNode(this.input).value
+    this.state = {
+      inputValue: '',
+    }
   }
 
   handleSearch() {
-    this.props.onSearch(this.getInputValue())
+    this.props.onSearch(this.state.inputValue)
   }
 
   handleEnterPress(e) {
@@ -41,6 +33,7 @@ class CreateMetacontent extends React.Component {
   }
 
   handleButtonClicked() {
+    console.log('fuck')
     this.handleSearch()
   }
 
@@ -56,74 +49,52 @@ class CreateMetacontent extends React.Component {
       selectednewsProviders,
       onNewsProviderChange,
       isSearching,
-      submitSuccess,
-      submitFailure,
     } = this.props
 
     return (
-      <div className={style.centerbody}>
-        {submitSuccess && submitSuccess.length > 0 &&
-          <div className="alert alert-success fade in">
-            <a href="#" className="close" data-dismiss="alert" aria-label="close">&times;</a>
-            {submitSuccess}
+      <Paper className={style.searchform}>
+        <Toolbar
+          style={{
+            backgroundColor: 'white',
+          }}
+        >
+          <ToolbarGroup>
+            <ToolbarTitle text="TẠO MỚI METACONTENT" />
+          </ToolbarGroup>
+        </Toolbar>
+        <ChannelPicker
+          channels={channels}
+          handleOptionChange={onChannelChange}
+          selected={selectedChannel}
+        />
+        <CategoryRadioGroup
+          selected={selectedCategory}
+          categoryList={categories}
+          handleOptionChange={onCategoryChange}
+        />
+        {selectedCategory === 'article' &&
+          <div>
+            {newsProviders.map((newsProvider, index) =>
+              <Checkbox
+                key={index}
+                checked={includes(selectednewsProviders, newsProvider)}
+                onCheck={onNewsProviderChange}
+                label={newsProvider}
+              />
+            )}
           </div>
         }
-        {submitFailure && submitFailure.length > 0 &&
-          <div className="alert alert-danger fade in">
-            <a href="#" className="close" data-dismiss="alert" aria-label="close">&times;</a>
-            {submitFailure}
-          </div>
-        }
-        <Panel header={'Tìm kiếm'}>
-          <ChannelPicker
-            channels={channels}
-            handleOptionChange={onChannelChange}
-            selected={selectedChannel}
-          />
-
-          <CategoryRadioGroup
-            selected={selectedCategory}
-            categoryList={categories}
-            handleOptionChange={onCategoryChange}
-          />
-
-          {selectedCategory === 'article' &&
-            <FormGroup>
-              {newsProviders.map((newsProvider, index) =>
-                <Checkbox
-                  inline
-                  key={index}
-                  checked={includes(selectednewsProviders, newsProvider)}
-                  onChange={onNewsProviderChange}
-                  name={newsProvider}
-                >
-                  {newsProvider}
-                </Checkbox>
-              )}
-            </FormGroup>
-          }
-
-          <FormGroup controlId="formControlsTextarea">
-            <ControlLabel>Tìm kiếm</ControlLabel>
-            <FormControl
-              type="text"
-              placeholder="Nhập để tìm kiếm"
-              ref={(c) => { this.input = c }}
-              onKeyPress={this.handleEnterPress}
-              autoFocus
-            />
-          </FormGroup>
-
-          <Button
-            bsStyle="primary"
-            onClick={this.handleButtonClicked}
-            tabIndex="-1"
-            disabled={isSearching}
-          >
-            {(isSearching) ? 'Tìm kiếm...' : 'Tìm kiếm'}
-          </Button>
-        </Panel>
-      </div>
+        <TextField
+          hintText="Nhập để tìm kiếm"
+          floatingLabelText="Tìm kiếm"
+          floatingLabelFixed
+          value={this.state.inputValue}
+          onChange={(event) => { this.setState({ inputValue: event.target.value }) }}
+          autoFocus
+          fullWidth
+        />
+        <RaisedButton label="Tìm kiếm" primary onClick={this.handleButtonClicked} />
+      </Paper>
     )
   }
 }

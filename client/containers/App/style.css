@@ -1,9 +1,16 @@
-.children {
-  margin-top: 80px;
+.normal {
+  background-color: #EEEEEE;
+  height: 100%;
+  margin: 0px; 
+  padding: 0px;
+  bottom: 0px;
+  right: 0px;
+  left: 0px;
+  position: fixed;
 }
 
-.fixAlert {
-  position: absolute;
-  width: 100%;
-  z-index: 9999;
+.children {
+  margin: 0 auto;
+  top: 100px;
+  position: relative;
 }

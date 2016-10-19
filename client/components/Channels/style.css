@@ -1,15 +1,3 @@
-.centerbody {
-  background: #fff;
-  margin: 0 auto;
-  position: relative;
-  min-width: 550px;
-  max-width: 1200px;
-}
-
-.channelstable {
-  margin-top: 50px;
-}
-
 .button {
   width: auto;
   display: block;

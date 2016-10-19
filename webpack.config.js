@@ -46,6 +46,16 @@ module.exports = {
         loader: 'style!css',
       },
       {
+        test: /\.css$/,
+        include: '/node_modules/react-grid-layout/css/styles.css',
+        loader: 'style!css',
+      },
+      {
+        test: /\.css$/,
+        include: '/node_modules/react-resizable/css/styles.css',
+        loader: 'style!css',
+      },
+      {
         test: /\.(js|jsx)$/,
         exclude: /node_modules/,
         loaders: [

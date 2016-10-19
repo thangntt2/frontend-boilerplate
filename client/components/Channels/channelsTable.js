@@ -1,46 +1,51 @@
 
 import React, { PropTypes } from 'react'
-import { Table, Button } from 'react-bootstrap'
+import { Table, TableBody, TableHeader, TableHeaderColumn, TableRow, TableRowColumn } from 'material-ui/Table'
+import FlatButton from 'material-ui/FlatButton'
 import style from './style.css'
 
 
 const ChannelItem = (props) => {
-  const { channel, onDeleteChannel } = props
+  const { channel, onDeleteChannel, ...otherProps } = props
   return (
-    <tr>
-      <td>{channel.id}</td>
-      <td>{channel.name}</td>
-      <td>{channel.icon}</td>
-      <td>
-        <Button bsStyle="danger" className={style.button} onClick={() => onDeleteChannel(channel)}>
+    <TableRow {...otherProps} >
+      <TableRowColumn>{channel.id}</TableRowColumn>
+      <TableRowColumn>{channel.name}</TableRowColumn>
+      <TableRowColumn>{channel.icon}</TableRowColumn>
+      <TableRowColumn>
+        <FlatButton
+          secondary
+          className={style.button}
+          onClick={() => onDeleteChannel(channel)}
+        >
           Xóa
-        </Button>
-      </td>
-    </tr>
+        </FlatButton>
+      </TableRowColumn>
+    </TableRow>
   )
-}
-
-ChannelItem.propTypes = {
-  channel: PropTypes.object,
-  onDeleteChannel: PropTypes.func.isRequired,
 }
 
 const ChannelsTable = (props) => {
   const { channels, onDeleteChannel } = props
   return (
     <div className={style.channelstable}>
-      <Table striped bordered condensed hover>
-        <thead>
-          <tr>
-            <th>ID</th>
-            <th>Kênh</th>
-            <th>Biểu tượng</th>
-            <th>Thao tác</th>
-          </tr>
-        </thead>
-        <tbody>
+      <Table
+        fixedHeader
+      >
+        <TableHeader displaySelectAll={false}>
+          <TableRow>
+            <TableHeaderColumn>ID</TableHeaderColumn>
+            <TableHeaderColumn>Kênh</TableHeaderColumn>
+            <TableHeaderColumn>Biểu tượng</TableHeaderColumn>
+            <TableHeaderColumn>Thao tác</TableHeaderColumn>
+          </TableRow>
+        </TableHeader>
+        <TableBody
+          stripedRows
+          showRowHover
+        >
           {channels.map(channel => <ChannelItem channel={channel} key={channel.id} onDeleteChannel={onDeleteChannel} />)}
-        </tbody>
+        </TableBody>
       </Table>
     </div>
   )

@@ -1,33 +1,52 @@
 
 import React, { PropTypes } from 'react'
-import { Table, Image, Button } from 'react-bootstrap'
+import { Table, TableBody, TableHeader, TableHeaderColumn, TableRow, TableRowColumn } from 'material-ui/Table'
 import { find } from 'lodash/collection'
+import FlatButton from 'material-ui/FlatButton'
 import style from './style.css'
 
 const MetacontentRow = (props) => {
-  const { metacontent, channel, onDeleteMetacontent } = props
+  const { metacontent, channel, onDeleteMetacontent, ...otherProps } = props
 
   return (
-    <tr>
-      <td>
-        <Image
+    <TableRow {...otherProps} >
+      <TableRowColumn>
+        <img
           className={style.img}
           thumbnail
           src={!(metacontent.image) || (metacontent.image.length === 0)
             ? 'http://vignette3.wikia.nocookie.net/shokugekinosoma/images/6/60/No_Image_Available.png/revision/latest?cb=20150708082716'
             : (metacontent.image)}
         />
-      </td>
-      <td>{metacontent.name}</td>
-      <td>{metacontent.description}</td>
-      <td>{metacontent.category}</td>
-      <td>{channel.name}</td>
-      <td>
-        <Button bsStyle="danger" className={style.button} onClick={() => onDeleteMetacontent(metacontent, channel)}>
+      </TableRowColumn>
+      <TableRowColumn
+        style={{
+          whiteSpace: 'normal',
+          wordWrap: 'break-word',
+        }}
+      >
+        {metacontent.name}
+      </TableRowColumn>
+      <TableRowColumn
+        style={{
+          whiteSpace: 'normal',
+          wordWrap: 'break-word',
+        }}
+      >
+        {metacontent.description}
+      </TableRowColumn>
+      <TableRowColumn>{metacontent.category}</TableRowColumn>
+      <TableRowColumn>{channel.name}</TableRowColumn>
+      <TableRowColumn>
+        <FlatButton
+          secondary
+          className={style.button}
+          onClick={() => onDeleteMetacontent(metacontent, channel)}
+        >
           Xóa
-        </Button>
-      </td>
-    </tr>
+        </FlatButton>
+      </TableRowColumn>
+    </TableRow>
   )
 }
 
@@ -46,18 +65,21 @@ const MetacontentsTable = (props) => {
   const { metacontents, channels, onDeleteMetacontent } = props
   return (
     <div className={style.metacontentsTable}>
-      <Table striped bordered condensed hover>
-        <thead>
-          <tr>
-            <th>Ảnh</th>
-            <th>Tên</th>
-            <th>Mô tả</th>
-            <th>Loại</th>
-            <th>Kênh</th>
-            <th>T.Tác</th>
-          </tr>
-        </thead>
-        <tbody>
+      <Table fixedHeader>
+        <TableHeader displaySelectAll={false}>
+          <TableRow>
+            <TableHeaderColumn>Ảnh</TableHeaderColumn>
+            <TableHeaderColumn>Tên</TableHeaderColumn>
+            <TableHeaderColumn>Mô tả</TableHeaderColumn>
+            <TableHeaderColumn>Loại</TableHeaderColumn>
+            <TableHeaderColumn>Kênh</TableHeaderColumn>
+            <TableHeaderColumn>T.Tác</TableHeaderColumn>
+          </TableRow>
+        </TableHeader>
+        <TableBody
+          stripedRows
+          showRowHover
+        >
           {metacontents.map(metacontent => (
             <MetacontentRow
               metacontent={metacontent}
@@ -66,7 +88,7 @@ const MetacontentsTable = (props) => {
               onDeleteMetacontent={onDeleteMetacontent}
             />
           ))}
-        </tbody>
+        </TableBody>
       </Table>
     </div>
   )

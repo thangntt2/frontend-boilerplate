@@ -1,44 +1,26 @@
 import React, { PropTypes } from 'react'
-import { Radio, FormGroup, ControlLabel } from 'react-bootstrap'
-
-const CategoryRadio = (props) => {
-  const { name, value, checked, handleOptionChange } = props
-  return (
-    <Radio
-      name="category"
-      checked={checked}
-      inline
-      value={value}
-      onChange={handleOptionChange}
-    >
-      {name}
-    </Radio>
-  )
-}
-
-CategoryRadio.propTypes = {
-  name: PropTypes.string,
-  value: PropTypes.string,
-  checked: PropTypes.bool,
-  handleOptionChange: PropTypes.func.isRequired,
-}
+import { RadioButton, RadioButtonGroup } from 'material-ui/RadioButton'
 
 const CategoryRadioGroup = (props) => {
   const { selected, categoryList, handleOptionChange } = props
   return (
     <div>
-      <ControlLabel>Loại</ControlLabel>
-      <FormGroup>
+      <RadioButtonGroup
+        name="category"
+        defaultSelected={selected}
+        onChange={handleOptionChange}
+      >
         {categoryList.map(category =>
-          <CategoryRadio
-            name={category.name}
-            checked={category.value === selected}
+          <RadioButton
             value={category.value}
-            handleOptionChange={handleOptionChange}
+            label={category.name}
             key={category.value}
+            inputStyle={{
+              fontWeight: 'normal',
+            }}
           />
         )}
-      </FormGroup>
+      </RadioButtonGroup>
     </div>
   )
 }

@@ -1,91 +1,44 @@
 
-import React, { Component, PropTypes } from 'react'
-import { Navbar, Nav, NavItem, NavDropdown, MenuItem, Glyphicon } from 'react-bootstrap'
+import React, { PropTypes } from 'react'
+import { AppBar } from 'material-ui'
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
+import { Tabs, Tab } from 'material-ui/Tabs'
+import style from './style.css'
 
-export default class Header extends Component {
-  constructor(props) {
-    super(props)
-    this.handleNavItemClicked = this.handleNavItemClicked.bind(this)
-  }
-
-  handleNavItemClicked(path) {
-    return this.props.onChangeTab(path)
-  }
-
-  render() {
-    const { loggedIn } = this.props
-    return (
-      <Navbar>
-        <Navbar.Header>
-          <Navbar.Brand>
-            <a href="/">THANGNTT</a>
-          </Navbar.Brand>
-        </Navbar.Header>
-        {loggedIn ?
-          <Nav pullRight>
-            <NavItem
-              eventKey={1}
-              onClick={() => this.handleNavItemClicked('/channels')}
-              active={this.props.path === '/channels'}
-            >
-              Channels
-            </NavItem>
-            <NavItem
-              eventKey={2}
-              onClick={() => this.handleNavItemClicked('/metacontents')}
-              active={this.props.path === '/metacontents'}
-            >
-              Metacontents
-            </NavItem>
-            <NavItem
-              eventKey={2}
-              onClick={() => this.handleNavItemClicked('/keywords')}
-              active={this.props.path === '/keywords'}
-            >
-              Keywords
-            </NavItem>
-            <NavDropdown eventKey={3} title={<Glyphicon glyph="plus" />} id="basic-nav-dropdown">
-              <MenuItem
-                eventKey={3.1}
-                onClick={() => this.handleNavItemClicked('/channel/create')}
-              >
-                New Channel
-              </MenuItem>
-              <MenuItem
-                eventKey={3.1}
-                onClick={() => this.handleNavItemClicked('/metacontent/create')}
-              >
-                New Metacontent
-              </MenuItem>
-              <MenuItem
-                eventKey={3.1}
-                onClick={() => this.handleNavItemClicked('/keyword/create')}
-              >
-                New Keyword
-              </MenuItem>
-            </NavDropdown>
-            <NavItem
-              eventKey={2}
-              onClick={() => this.handleNavItemClicked('/logout')}
-            >
-              Logout
-            </NavItem>
-          </Nav>
-          :
-          <Nav pullRight>
-            {this.props.path && this.props.path !== '/login' &&
-              <NavItem
-                eventKey={2}
-                onClick={() => this.handleNavItemClicked('/login')}
-              >
-                Login
-              </NavItem>
+const Header = (props) => {
+  const { loggedIn, onChangeTab, path } = props
+  return (
+      <MuiThemeProvider>
+        <div>
+          <AppBar
+            showMenuIconButton={false}
+            style={{
+              backgroundColor: 'white',
+              paddingLeft: '20px',
+              paddingRight: '150px',
+              position: 'fixed',
+              display: 'flex',
+            }}
+            title={
+              <img className={style.icon} src="https://cdn-10a6.kxcdn.com/wp-content/uploads/2015/03/logo_blk-copy.png" />
             }
-          </Nav>
-        }
-      </Navbar>
-    )
-  }
+          >
+            <Tabs
+              className={style.tabbar}
+              tabItemContainerStyle={{
+                backgroundColor: 'white',
+              }}
+              onChange={(value) => { onChangeTab(value) }}
+              value={path}
+            >
+              <Tab label="Kênh" value="/channels" style={{ color: 'black', textTransform: 'none' }} />
+              <Tab label="Metacontent" value="/metacontents" style={{ color: 'black', textTransform: 'none' }} />
+              <Tab label="Từ khóa" value="/keywords" style={{ color: 'black', textTransform: 'none' }} />
+            </Tabs>
+          </AppBar>
+        </div>
+      </MuiThemeProvider>
+  )
 }
 
 Header.propTypes = {
@@ -93,3 +46,6 @@ Header.propTypes = {
   path: PropTypes.string,
   loggedIn: PropTypes.bool,
 }
+
+export default Header
+
