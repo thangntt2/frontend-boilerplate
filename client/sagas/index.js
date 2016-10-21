@@ -126,6 +126,7 @@ function* submitMetacontent(data) {
 function* submitKeyword(data) {
   const accessToken = yield select(getAccessToken)
   yield call(sendData, data, keywords, apis.Keyword.submit, accessToken)
+  yield call(loadKeywords)
 }
 
 function* submitChannel(data) {

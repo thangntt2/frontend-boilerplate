@@ -2,16 +2,34 @@
 import React, { PropTypes } from 'react'
 import { connect } from 'react-redux'
 import Keywords from '../../components/Keywords'
-import { loadKeywordsPage, navigate, deleteKeyword } from '../../actions'
+import { loadKeywordsPage, navigate, deleteKeyword, submitKeyword } from '../../actions'
 
 class KeywordsContainer extends React.Component {
   constructor(props) {
     super(props)
     this.handleClickCreateButton = this.handleClickCreateButton.bind(this)
     this.handleDeleteKeyword = this.handleDeleteKeyword.bind(this)
+    this.handleChannelChange = this.handleChannelChange.bind(this)
+    this.handleSubmit = this.handleSubmit.bind(this)
+    this.state = {
+      selectedChannel: 0,
+      openCreate: false,
+    }
   }
   componentWillMount() {
     this.props.loadKeywordsPage()
+  }
+
+  handleChannelChange(event, key, value) {
+    this.setState({ selectedChannel: parseInt(value, 10) })
+  }
+
+  handleSubmit(keyword) {
+    const kw = {
+      keyword,
+      channel: this.props.channels[this.state.selectedChannel].id,
+    }
+    this.props.submitKeyword(kw)
   }
 
   handleDeleteKeyword(keyword, channel) {
@@ -23,7 +41,7 @@ class KeywordsContainer extends React.Component {
   }
 
   handleClickCreateButton() {
-    this.props.navigate('/keyword/create')
+    this.setState({ openCreate: true })
   }
 
   render() {
@@ -36,6 +54,10 @@ class KeywordsContainer extends React.Component {
             channels={channels}
             handleCreateButton={this.handleClickCreateButton}
             onDeleteKeyword={this.handleDeleteKeyword}
+            onChannelChange={this.handleChannelChange}
+            onSubmit={this.handleSubmit}
+            open={this.state.openCreate}
+            handleClose={() => this.setState({ openCreate: false })}
           />
         }
       </div>
@@ -49,6 +71,7 @@ KeywordsContainer.propTypes = {
   loadKeywordsPage: PropTypes.func.isRequired,
   navigate: PropTypes.func.isRequired,
   deleteKeyword: PropTypes.func.isRequired,
+  submitKeyword: PropTypes.func.isRequired,
 }
 
 function mapStateToProps(state) {
@@ -63,4 +86,5 @@ export default connect(mapStateToProps, {
   loadKeywordsPage,
   navigate,
   deleteKeyword,
+  submitKeyword,
 })(KeywordsContainer)

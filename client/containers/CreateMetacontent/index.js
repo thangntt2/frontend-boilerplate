@@ -30,13 +30,13 @@ const newsProviders = [
 // }
 
 const lg_layout = x => [
-  { i: 'search', x, y: 0, w: 4, h: 2 },
-  { i: 'results', x: x + 4, y: 0, w: x === 0 ? 8 : 0, h: 2 },
+  { i: 'search', x, y: 0, w: 4, h: 0, static: true },
+  x === 0 && { i: 'results', x: x + 4, y: 0, w: x === 0 ? 8 : 0, h: 0, static: true },
 ]
 
 const sm_layout = x => [
   { i: 'search', x, y: 0, w: 4, h: 2, static: true },
-  { i: 'results', x: x + 4, y: 0, w: x === 0 ? 8 : 0, h: 2, static: true },
+  { i: 'results', x: x + 4, y: 0, w: x === 0 ? 8 : 0, h: 10, static: true },
 ]
 
 class CreateMetacontentContainer extends React.Component {
@@ -96,16 +96,11 @@ class CreateMetacontentContainer extends React.Component {
   }
 
   handleSearch(searchTerm) {
-    // this.props.searchMetacontent(
-    //   searchTerm,
-    //   this.state.selectedCategory,
-    //   this.state.selectednewsProviders,
-    // )
-    if (this.state.x === 4) {
-      this.setState({ x: 0 })
-    } else {
-      this.setState({ x: 4 })
-    }
+    this.props.searchMetacontent(
+      searchTerm,
+      this.state.selectedCategory,
+      this.state.selectednewsProviders,
+    )
   }
 
   render() {
@@ -118,12 +113,13 @@ class CreateMetacontentContainer extends React.Component {
       submitFailure,
     } = this.props
     return (
-      <Motion defaultStyle={{ x: 4 }} style={{ x: spring(this.state.x, { precision: 1 }) }} >
+      <Motion defaultStyle={{ x: 4 }} style={{ x: spring(result ? 0 : 4, { precision: 0.001 }) }} >
         {interpolatingStyle =>
           <ResponsiveReactGridLayout
             className="layout"
             breakpoints={{ lg: 1200, sm: 768 }}
             cols={{ lg: 12, sm: 6 }}
+            autoSize
             layouts={{ lg: lg_layout(interpolatingStyle.x), sm: sm_layout(4) }}
           >
             <div key="search">

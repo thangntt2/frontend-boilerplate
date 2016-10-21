@@ -1,22 +1,23 @@
 
 import React, { PropTypes } from 'react'
-import { Table, Button } from 'react-bootstrap'
+import { Table, TableBody, TableHeader, TableHeaderColumn, TableRow, TableRowColumn } from 'material-ui/Table'
 import { find } from 'lodash/collection'
+import FlatButton from 'material-ui/FlatButton'
 import style from './style.css'
 
 const KeywordRow = (props) => {
-  const { keyword, channel, onDeleteKeyword } = props
+  const { keyword, channel, onDeleteKeyword, ...otherProps } = props
 
   return (
-    <tr>
-      <td>{keyword.keyword}</td>
-      <td>{channel}</td>
-      <td>
-        <Button bsStyle="danger" onClick={() => onDeleteKeyword(keyword, channel)}>
+    <TableRow {...otherProps} >
+      <TableRowColumn>{keyword.keyword}</TableRowColumn>
+      <TableRowColumn>{channel}</TableRowColumn>
+      <TableRowColumn>
+        <FlatButton secondary onClick={() => onDeleteKeyword(keyword, channel)}>
           Xóa
-        </Button>
-      </td>
-    </tr>
+        </FlatButton>
+      </TableRowColumn>
+    </TableRow>
   )
 }
 
@@ -30,24 +31,23 @@ const KeywordsTable = (props) => {
   const { keywords, channels, onDeleteKeyword } = props
   return (
     <div className={style.metacontentsTable}>
-      <Table striped bordered condensed hover>
-        <thead>
-          <tr>
-            <th>Tên</th>
-            <th>Kênh</th>
-            <th>Thao tác</th>
-          </tr>
-        </thead>
-        <tbody>
-          {keywords.map(keyword => (
+      <Table fixedHeader>
+        <TableHeader displaySelectAll={false}>
+          <TableRow>
+            <TableHeaderColumn>Keywords</TableHeaderColumn>
+            <TableHeaderColumn>Kênh</TableHeaderColumn>
+          </TableRow>
+        </TableHeader>
+        <TableBody stripedRows showRowHover>
+          {keywords.map(keyword =>
             <KeywordRow
               keyword={keyword}
-              channel={find(channels, ['id', keyword.ChannelId]).name}
               key={keyword.id}
               onDeleteKeyword={onDeleteKeyword}
+              channel={find(channels, ['id', keyword.ChannelId]).name}
             />
-          ))}
-        </tbody>
+          )}
+        </TableBody>
       </Table>
     </div>
   )

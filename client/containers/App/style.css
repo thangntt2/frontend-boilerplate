@@ -1,16 +1,16 @@
 .normal {
   background-color: #EEEEEE;
   height: 100%;
-  margin: 0px; 
-  padding: 0px;
+  margin: 0 auto; 
   bottom: 0px;
-  right: 0px;
-  left: 0px;
+  width: 100%;
   position: fixed;
 }
 
 .children {
   margin: 0 auto;
   top: 100px;
+  height: 100%;
   position: relative;
+  overflow: scroll;
 }

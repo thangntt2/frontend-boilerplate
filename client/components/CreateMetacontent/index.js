@@ -1,6 +1,5 @@
 
 import React, { PropTypes } from 'react'
-import ReactDOM from 'react-dom'
 import { Toolbar, ToolbarGroup, ToolbarTitle } from 'material-ui/Toolbar'
 import { includes } from 'lodash/collection'
 import Checkbox from 'material-ui/Checkbox'
@@ -33,7 +32,6 @@ class CreateMetacontent extends React.Component {
   }
 
   handleButtonClicked() {
-    console.log('fuck')
     this.handleSearch()
   }
 

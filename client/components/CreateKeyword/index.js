@@ -1,25 +1,23 @@
 
 import React, { PropTypes } from 'react'
-import { FormControl, ControlLabel, FormGroup, Panel, Button } from 'react-bootstrap'
-import ReactDOM from 'react-dom'
-import style from '../../style/style.css'
+import Dialog from 'material-ui/Dialog'
+import FlatButton from 'material-ui/FlatButton'
+import TextField from 'material-ui/TextField'
 import ChannelPicker from '../CreateMetacontent/channelPicker'
 
 class CreateKeywords extends React.Component {
   constructor(props) {
     super(props)
-    this.getInputValue = this.getInputValue.bind(this)
     this.handleSubmit = this.handleSubmit.bind(this)
     this.handleEnterPress = this.handleEnterPress.bind(this)
     this.handleButtonClicked = this.handleButtonClicked.bind(this)
-  }
-
-  getInputValue() {
-    return ReactDOM.findDOMNode(this.input).value
+    this.state = {
+      inputValue: '',
+    }
   }
 
   handleSubmit() {
-    this.props.onSubmit(this.getInputValue())
+    this.props.onSubmit(this.state.inputValue)
   }
 
   handleEnterPress(e) {
@@ -33,48 +31,49 @@ class CreateKeywords extends React.Component {
   }
 
   render() {
-    const { channels, onChannelChange, selectedChannel, isSubmit, submitSuccess, submitFailure } = this.props
+    const { channels, onChannelChange, selectedChannel, isSubmit, open, handleClose } = this.props
+    const actions = [
+      <FlatButton
+        label={isSubmit ? 'Đang tạo...' : 'Tạo'}
+        disable={isSubmit}
+        primary
+        keyboardFocused
+        onTouchTap={this.handleSubmit}
+      />,
+      <FlatButton
+        label="Hủy"
+        primary={false}
+        onTouchTap={handleClose}
+      />,
+    ]
 
     return (
-      <Panel header={'Tạo từ khóa'} className={style.centerbody}>
-        {submitSuccess && submitSuccess.length > 0 &&
-          <div className="alert alert-success fade in">
-            <a href="#" className="close" data-dismiss="alert" aria-label="close">&times;</a>
-            {submitSuccess}
-          </div>
-        }
-        {submitFailure && submitFailure.length > 0 &&
-          <div className="alert alert-danger fade in">
-            <a href="#" className="close" data-dismiss="alert" aria-label="close">&times;</a>
-            {submitFailure}
-          </div>
-        }
-        <ChannelPicker
-          channels={channels}
-          handleOptionChange={onChannelChange}
-          selected={selectedChannel}
-        />
 
-        <FormGroup controlId="formControlsTextarea">
-          <ControlLabel>Tìm kiếm</ControlLabel>
-          <FormControl
-            type="text"
-            placeholder="Nhập Keyword"
-            ref={(c) => { this.input = c }}
-            onKeyPress={this.handleEnterPress}
-            autoFocus
-          />
-        </FormGroup>
-
-        <Button
-          bsStyle="primary"
-          onClick={this.handleButtonClicked}
-          tabIndex="-1"
-          disabled={isSubmit}
+      <div>
+        <Dialog
+          title="TẠO MỚI KEYWORD"
+          actions={actions}
+          modal={false}
+          open={open}
+          onRequestClose={handleClose}
         >
-          {(isSubmit) ? 'Đang đăng...' : 'Đăng'}
-        </Button>
-      </Panel>
+          <ChannelPicker
+            channels={channels}
+            handleOptionChange={onChannelChange}
+            selected={selectedChannel}
+          />
+          <TextField
+            hintText="Nhập Từ khóa"
+            floatingLabelText="Từ khóa"
+            floatingLabelFixed
+            value={this.state.inputValue}
+            onChange={(event) => { this.setState({ inputValue: event.target.value }) }}
+            autoFocus
+            onKeyPress={this.handleEnterPress}
+            fullWidth
+          />
+        </Dialog>
+      </div>
     )
   }
 }
@@ -85,8 +84,8 @@ CreateKeywords.propTypes = {
   selectedChannel: PropTypes.number,
   onSubmit: PropTypes.func.isRequired,
   isSubmit: PropTypes.bool,
-  submitSuccess: PropTypes.string,
-  submitFailure: PropTypes.string,
+  open: PropTypes.bool,
+  handleClose: PropTypes.func,
 }
 
 export default CreateKeywords

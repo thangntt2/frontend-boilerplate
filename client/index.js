@@ -12,7 +12,6 @@ import CreateChannelContainer from './containers/CreateChannel'
 import MetacontentsContainer from './containers/Metacontents'
 import CreateMetacontentContainer from './containers/CreateMetacontent'
 import KeywordsContainer from './containers/Keywords'
-import CreateKeywordContainer from './containers/CreateKeyword'
 import LoginContainer from './containers/Login'
 import DummyLogoutContainer from './containers/Logout'
 import App from './containers/App'
@@ -46,7 +45,6 @@ getStoredState(persistConfig, (err, restoredState) => {
             <Route path="/metacontents" component={MetacontentsContainer} />
             <Route path="/metacontent/create" component={CreateMetacontentContainer} />
             <Route path="/keywords" component={KeywordsContainer} />
-            <Route path="/keyword/create" component={CreateKeywordContainer} />
             <Route path="/channel/create" component={CreateChannelContainer} />
             <Route path="/logout" component={DummyLogoutContainer} />
           </Route>

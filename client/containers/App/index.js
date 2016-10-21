@@ -3,6 +3,7 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { MuiThemeProvider } from 'material-ui'
 import injectTapEventPlugin from 'react-tap-event-plugin'
+import Snackbar from 'material-ui/Snackbar'
 import Header from '../../components/Header'
 import style from './style.css'
 import { navigate } from '../../actions'
@@ -34,6 +35,11 @@ class App extends Component {
           <div className={style.children}>
             {children}
           </div>
+          <Snackbar
+            open={!!this.props.success || !!this.props.error}
+            message={this.props.success ? this.props.success : this.props.error}
+            autoHideDuration={4000}
+          />
         </div>
       </MuiThemeProvider>
     )

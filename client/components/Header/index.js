@@ -9,34 +9,32 @@ const Header = (props) => {
   const { loggedIn, onChangeTab, path } = props
   return (
       <MuiThemeProvider>
-        <div>
-          <AppBar
-            showMenuIconButton={false}
-            style={{
+        <AppBar
+          showMenuIconButton={false}
+          style={{
+            backgroundColor: 'white',
+            paddingLeft: '20px',
+            paddingRight: '150px',
+            position: 'fixed',
+            display: 'flex',
+          }}
+          title={
+            <img className={style.icon} src="https://cdn-10a6.kxcdn.com/wp-content/uploads/2015/03/logo_blk-copy.png" />
+          }
+        >
+          <Tabs
+            className={style.tabbar}
+            tabItemContainerStyle={{
               backgroundColor: 'white',
-              paddingLeft: '20px',
-              paddingRight: '150px',
-              position: 'fixed',
-              display: 'flex',
             }}
-            title={
-              <img className={style.icon} src="https://cdn-10a6.kxcdn.com/wp-content/uploads/2015/03/logo_blk-copy.png" />
-            }
+            onChange={(value) => { onChangeTab(value) }}
+            value={path}
           >
-            <Tabs
-              className={style.tabbar}
-              tabItemContainerStyle={{
-                backgroundColor: 'white',
-              }}
-              onChange={(value) => { onChangeTab(value) }}
-              value={path}
-            >
-              <Tab label="Kênh" value="/channels" style={{ color: 'black', textTransform: 'none' }} />
-              <Tab label="Metacontent" value="/metacontents" style={{ color: 'black', textTransform: 'none' }} />
-              <Tab label="Từ khóa" value="/keywords" style={{ color: 'black', textTransform: 'none' }} />
-            </Tabs>
-          </AppBar>
-        </div>
+            <Tab label="Kênh" value="/channels" style={{ color: 'black', textTransform: 'none' }} />
+            <Tab label="Metacontent" value="/metacontents" style={{ color: 'black', textTransform: 'none' }} />
+            <Tab label="Từ khóa" value="/keywords" style={{ color: 'black', textTransform: 'none' }} />
+          </Tabs>
+        </AppBar>
       </MuiThemeProvider>
   )
 }

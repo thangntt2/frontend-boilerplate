@@ -1,31 +1,59 @@
 
 import React, { PropTypes } from 'react'
-import { Button } from 'react-bootstrap'
-import style from './style.css'
+import Paper from 'material-ui/Paper'
+import { Toolbar, ToolbarGroup, ToolbarTitle } from 'material-ui/Toolbar'
+import FontIcon from 'material-ui/FontIcon'
+import { FlatButton } from 'material-ui'
+import style from '../../style/style.css'
 import KeywordsTable from './keywordsTable'
+import CreateKeywords from '../CreateKeyword'
 
 const Keywords = (props) => {
-  const { channels, keywords, handleCreateButton, onDeleteKeyword } = props
+  const { channels, keywords, handleCreateButton, onDeleteKeyword, open, handleClose, onChannelChange, onSubmit } = props
   return (
-    <div className={style.centerbody}>
-      <Button bsStyle="primary" onClick={handleCreateButton}>Create</Button>
-      <h1>
-        Keywords đã tạo trong 24h qua
-      </h1>
+    <Paper className={style.centerbody} zDepth={2}>
+      <Toolbar
+        style={{
+          backgroundColor: 'white',
+        }}
+      >
+        <ToolbarGroup>
+          <ToolbarTitle text="DANH SÁCH TỪ KHÓA" />
+        </ToolbarGroup>
+        <ToolbarGroup>
+          <FlatButton
+            label="Tạo"
+            primary
+            icon={<FontIcon className="material-icons">add</FontIcon>}
+            onClick={handleCreateButton}
+          />
+        </ToolbarGroup>
+      </Toolbar>
       <KeywordsTable
         channels={channels}
         keywords={keywords}
         onDeleteKeyword={onDeleteKeyword}
       />
-    </div>
+      <CreateKeywords
+        channels={channels}
+        onChannelChange={onChannelChange}
+        onSubmit={onSubmit}
+        open={open}
+        handleClose={handleClose}
+      />
+    </Paper>
   )
 }
 
 Keywords.propTypes = {
   channels: PropTypes.array,
   keywords: PropTypes.array,
+  open: PropTypes.bool,
   handleCreateButton: PropTypes.func.isRequired,
   onDeleteKeyword: PropTypes.func.isRequired,
+  handleClose: PropTypes.func.isRequired,
+  onChannelChange: PropTypes.func.isRequired,
+  onSubmit: PropTypes.func.isRequired,
 }
 
 export default Keywords
