@@ -48,7 +48,6 @@ class CreateKeywords extends React.Component {
     ]
 
     return (
-
       <div>
         <Dialog
           title="TẠO MỚI KEYWORD"

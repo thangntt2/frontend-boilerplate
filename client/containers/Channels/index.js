@@ -1,7 +1,7 @@
 
 import { connect } from 'react-redux'
 import React, { Component, PropTypes } from 'react'
-import { loadChannelsPage, deleteChannel, navigate } from '../../actions'
+import { loadChannelsPage, deleteChannel, submitChannel } from '../../actions'
 import Channels from '../../components/Channels'
 
 
@@ -9,11 +9,19 @@ class ChannelsContainer extends Component {
   constructor(props) {
     super(props)
     this.handleDeleteChannel = this.handleDeleteChannel.bind(this)
+    this.handleSubmit = this.handleSubmit.bind(this)
     this.handleOnCreateButton = this.handleOnCreateButton.bind(this)
+    this.state = {
+      openCreate: false,
+    }
   }
-  
+
   componentWillMount() {
     this.props.loadChannelsPage()
+  }
+
+  handleSubmit(channel) {
+    this.props.submitChannel(channel)
   }
 
   handleDeleteChannel(channel) {
@@ -21,7 +29,7 @@ class ChannelsContainer extends Component {
   }
 
   handleOnCreateButton() {
-    this.props.navigate('/channel/create')
+    this.setState({ openCreate: true })
   }
 
   render() {
@@ -35,6 +43,9 @@ class ChannelsContainer extends Component {
             onDeleteChannel={this.handleDeleteChannel}
             deletting={deletting}
             onCreateButton={this.handleOnCreateButton}
+            open={this.state.openCreate}
+            handleClose={() => this.setState({ openCreate: false })}
+            onSubmit={this.handleSubmit}
           />
         }
       </div>
@@ -52,9 +63,7 @@ ChannelsContainer.propTypes = {
       channel: PropTypes.string,
     })),
   deleteChannel: PropTypes.func.isRequired,
-  navigate: PropTypes.func.isRequired,
-  success: PropTypes.string,
-  error: PropTypes.string,
+  submitChannel: PropTypes.func.isRequired,
   deletting: PropTypes.bool,
 }
 
@@ -70,5 +79,5 @@ function mapStateToProps(state) {
 export default connect(mapStateToProps, {
   loadChannelsPage,
   deleteChannel,
-  navigate,
+  submitChannel,
 })(ChannelsContainer)

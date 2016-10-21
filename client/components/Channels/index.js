@@ -6,9 +6,10 @@ import { FlatButton } from 'material-ui'
 import Paper from 'material-ui/Paper'
 import style from '../../style/style.css'
 import ChannelsTable from './channelsTable'
+import CreateChannel from '../CreateChannel'
 
 const Channels = (props) => {
-  const { channels, onDeleteChannel, onCreateButton } = props
+  const { channels, onDeleteChannel, onCreateButton, onSubmit, open, handleClose } = props
   return (
     <Paper className={style.centerbody} zDepth={2}>
       <Toolbar
@@ -29,6 +30,11 @@ const Channels = (props) => {
         </ToolbarGroup>
       </Toolbar>
       <ChannelsTable channels={channels} onDeleteChannel={onDeleteChannel} />
+      <CreateChannel
+        onSubmit={onSubmit}
+        open={open}
+        handleClose={handleClose}
+      />
     </Paper>
   )
 }
@@ -43,6 +49,9 @@ Channels.propTypes = {
     })),
   onDeleteChannel: PropTypes.func.isRequired,
   onCreateButton: PropTypes.func.isRequired,
+  onSubmit: PropTypes.func.isRequired,
+  open: PropTypes.bool,
+  handleClose: PropTypes.func.isRequired,
 }
 
 export default Channels

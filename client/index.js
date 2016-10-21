@@ -8,7 +8,6 @@ import { getStoredState, createPersistor } from 'redux-persist'
 import rootSaga from './sagas'
 
 import ChannelsContainer from './containers/Channels'
-import CreateChannelContainer from './containers/CreateChannel'
 import MetacontentsContainer from './containers/Metacontents'
 import CreateMetacontentContainer from './containers/CreateMetacontent'
 import KeywordsContainer from './containers/Keywords'
@@ -45,7 +44,6 @@ getStoredState(persistConfig, (err, restoredState) => {
             <Route path="/metacontents" component={MetacontentsContainer} />
             <Route path="/metacontent/create" component={CreateMetacontentContainer} />
             <Route path="/keywords" component={KeywordsContainer} />
-            <Route path="/channel/create" component={CreateChannelContainer} />
             <Route path="/logout" component={DummyLogoutContainer} />
           </Route>
           <Route path="/login" component={LoginContainer} />
