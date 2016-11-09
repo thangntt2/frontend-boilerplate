@@ -28,6 +28,7 @@ const Header = (props) => {
                 listRoute.map(route => (
                   <li key={route.link}>
                     <button
+                      className={style.button}
                       onClick={() => navigate(route.link)}
                       style={path === route.link ? { color: '#0070D3' } : {}}
                     >
@@ -36,11 +37,24 @@ const Header = (props) => {
                   </li>
                 ))
               }
+              <li>
+                <button
+                  className={style.buttonLog}
+                  onClick={() => navigate('/logout')}
+                >
+                  Logout
+                </button>
+              </li>
             </ul>
           </div>)
           :
           (path !== '/login' &&
-            <FlatButton label="login" primary={false} onClick={() => navigate('/login')} labelStyle={{ color: 'black' }} />
+            <button
+              className={style.buttonLog}
+              onClick={() => navigate('/login')}
+            >
+              Login
+            </button>
           )
         }
       />
