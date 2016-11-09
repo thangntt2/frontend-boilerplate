@@ -1,9 +1,9 @@
 
 import React, { PropTypes } from 'react'
-import ReactDOM from 'react-dom'
-import { Form, FormGroup, FormControl, Col, Checkbox, ControlLabel } from 'react-bootstrap'
+import Paper from 'material-ui/Paper'
+import RaisedButton from 'material-ui/RaisedButton'
+import TextField from 'material-ui/TextField'
 import { connect } from 'react-redux'
-import Button from 'react-bootstrap-button-loader'
 import { loginRequest, navigate } from '../../actions'
 import style from './style.css'
 
@@ -11,6 +11,10 @@ class LoginContainer extends React.Component {
   constructor(props) {
     super(props)
     this.handleLogin = this.handleLogin.bind(this)
+    this.state = {
+      username: '',
+      password: '',
+    }
   }
 
   componentWillMount() {
@@ -20,63 +24,45 @@ class LoginContainer extends React.Component {
   }
 
   handleLogin() {
-    const email = ReactDOM.findDOMNode(this.email).value
-    const password = ReactDOM.findDOMNode(this.password).value
-    this.props.loginRequest(email, password)
+    this.props.loginRequest(this.state.username, this.state.password)
   }
 
   render() {
-    const { error, submitting } = this.props
-    const message = error && error.text
+    const { submitting } = this.props
     return (
-      <div className={style.centerbody} >
-        {message &&
-          <div className="alert alert-danger fade in">
-            <a href="#" className="close" data-dismiss="alert" aria-label="close">&times;</a>
-            {message}
-          </div>
-        }
-        <Form horizontal>
-          <FormGroup controlId="formHorizontalEmail">
-            <Col componentClass={ControlLabel} sm={2}>
-              Email
-            </Col>
-            <Col sm={10}>
-              <FormControl type="email" placeholder="Email" ref={(ref) => { this.email = ref }} />
-            </Col>
-          </FormGroup>
-
-          <FormGroup controlId="formHorizontalPassword">
-            <Col componentClass={ControlLabel} sm={2}>
-              Password
-            </Col>
-            <Col sm={10}>
-              <FormControl type="password" placeholder="Password" ref={(ref) => { this.password = ref }} />
-            </Col>
-          </FormGroup>
-
-          <FormGroup>
-            <Col smOffset={2} sm={10}>
-              <Checkbox>Remember me</Checkbox>
-            </Col>
-          </FormGroup>
-
-          <FormGroup>
-            <Col smOffset={2} sm={10}>
-              <Button onClick={this.handleLogin} loading={submitting}>
-                Sign in
-              </Button>
-            </Col>
-          </FormGroup>
-        </Form>
-      </div>
+      <Paper className={style.centerbody} >
+        <TextField
+          hintText="thangntt@hotmail.com"
+          floatingLabelText="Email"
+          floatingLabelFixed
+          value={this.state.username}
+          onChange={(event) => { this.setState({ username: event.target.value }) }}
+          autoFocus
+          onKeyPress={this.handleEnterPress}
+          fullWidth
+        />
+        <TextField
+          floatingLabelText="Mật khẩu"
+          floatingLabelFixed
+          value={this.state.password}
+          onChange={(event) => { this.setState({ password: event.target.value }) }}
+          onKeyPress={this.handleEnterPress}
+          fullWidth
+          type="password"
+        />
+        <RaisedButton
+          label={submitting ? 'Đăng nhập...' : 'Đăng nhập'}
+          primary
+          disabled={submitting}
+          onClick={this.handleLogin}
+        />
+      </Paper>
     )
   }
 }
 
 LoginContainer.propTypes = {
   loginRequest: PropTypes.func.isRequired,
-  error: PropTypes.object,
   submitting: PropTypes.bool,
   access_token: PropTypes.string,
   expires_on: PropTypes.number,

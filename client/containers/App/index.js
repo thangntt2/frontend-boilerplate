@@ -30,6 +30,7 @@ class App extends Component {
             onChangeTab={this.handleChangePath}
             path={location.pathname}
             loggedIn={loggedIn}
+            navigate={this.props.navigate}
             zDepth={1}
           />
           <div className={style.children}>

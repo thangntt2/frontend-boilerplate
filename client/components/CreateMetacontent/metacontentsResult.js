@@ -1,6 +1,6 @@
 
 import React, { PropTypes } from 'react'
-import { Card, CardActions, CardHeader, CardMedia, CardTitle, CardText } from 'material-ui/Card'
+import { Card, CardHeader, CardText } from 'material-ui/Card'
 
 class OnHoverCard extends React.Component {
   constructor(props) {

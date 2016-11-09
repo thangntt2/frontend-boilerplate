@@ -5,6 +5,7 @@
   bottom: 0px;
   width: 100%;
   position: fixed;
+  overflow: scroll;
 }
 
 .children {
@@ -12,5 +13,4 @@
   top: 100px;
   height: 100%;
   position: relative;
-  overflow: scroll;
 }

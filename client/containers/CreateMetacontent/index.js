@@ -113,44 +113,40 @@ class CreateMetacontentContainer extends React.Component {
       submitFailure,
     } = this.props
     return (
-      <Motion defaultStyle={{ x: 4 }} style={{ x: spring(result ? 0 : 4, { precision: 0.001 }) }} >
-        {interpolatingStyle =>
-          <ResponsiveReactGridLayout
-            className="layout"
-            breakpoints={{ lg: 1200, sm: 768 }}
-            cols={{ lg: 12, sm: 6 }}
-            autoSize
-            layouts={{ lg: lg_layout(interpolatingStyle.x), sm: sm_layout(4) }}
-          >
-            <div key="search">
-              <CreateMetacontent
-                channels={channels}
-                selectedChannel={this.state.selectedChannel}
-                onChannelChange={this.handleChannelChange}
-                categories={categories}
-                selectedCategory={this.state.selectedCategory}
-                onCategoryChange={this.handleCategoryChange}
-                newsProviders={newsProviders}
-                selectednewsProviders={this.state.selectednewsProviders}
-                onNewsProviderChange={this.handleNewsProviderChange}
-                isSearching={isSearching}
-                onSearch={this.handleSearch}
-                submitSuccess={submitSuccess}
-                submitFailure={submitFailure}
-              />
-            </div>
-            <div key="results">
-              {result && result.length > 0 && interpolatingStyle.x === 0 &&
-                <MetacontentResults
-                  result={result}
-                  handleClick={this.handleClickResult}
-                  isSubmitting={submiting}
-                />
-              }
-            </div>
-          </ResponsiveReactGridLayout>
-        }
-      </Motion>
+      <ResponsiveReactGridLayout
+        className="layout"
+        breakpoints={{ lg: 1200, sm: 768 }}
+        cols={{ lg: 12, sm: 6 }}
+        autoSize
+        layouts={{ lg: lg_layout(result ? 0 : 4), sm: sm_layout(4) }}
+      >
+        <div key="search" style={{ transition: 'transform .7s' }}>
+          <CreateMetacontent
+            channels={channels}
+            selectedChannel={this.state.selectedChannel}
+            onChannelChange={this.handleChannelChange}
+            categories={categories}
+            selectedCategory={this.state.selectedCategory}
+            onCategoryChange={this.handleCategoryChange}
+            newsProviders={newsProviders}
+            selectednewsProviders={this.state.selectednewsProviders}
+            onNewsProviderChange={this.handleNewsProviderChange}
+            isSearching={isSearching}
+            onSearch={this.handleSearch}
+            submitSuccess={submitSuccess}
+            submitFailure={submitFailure}
+          />
+        </div>
+        <div key="results" style={{ transitionDelay: '.7s' }}>
+          {result && result.length > 0 &&
+            <MetacontentResults
+              result={result}
+              handleClick={this.handleClickResult}
+              isSubmitting={submiting}
+            />
+          }
+        </div>
+      </ResponsiveReactGridLayout>
     )
   }
 }

@@ -1,6 +1,6 @@
 
 import { take, put, call, fork, select } from 'redux-saga/effects'
-import { delay } from 'redux-saga'
+import { delay, takeEvery } from 'redux-saga'
 import * as apis from '../apis'
 import * as actions from '../actions'
 
@@ -258,25 +258,31 @@ function* watchSubmitChannel() {
   }
 }
 
+function* doDeleteChannel(action) {
+  const { channel } = action
+  yield call(deleteChannel, channel)
+}
+
 function* watchDeleteChannel() {
-  while (true) {
-    const { channel } = yield take(actions.DELETE_CHANNEL)
-    yield call(deleteChannel, channel)
-  }
+  yield takeEvery(actions.DELETE_CHANNEL, doDeleteChannel)
+}
+
+function* doDeleteMetacontent(action) {
+  const { metacontent } = action
+  yield call(deleteMetacontent, metacontent)
 }
 
 function* watchDeleteMetacontent() {
-  while (true) {
-    const { metacontent } = yield take(actions.DELETE_METACONTENT)
-    yield call(deleteMetacontent, metacontent)
-  }
+  yield takeEvery(actions.DELETE_METACONTENT, doDeleteMetacontent)
+}
+
+function* doDeleteKeyword(action) {
+  const { keyword } = action
+  yield call(deleteKeyword, keyword)
 }
 
 function* watchDeleteKeyword() {
-  while (true) {
-    const { keyword } = yield take(actions.DELETE_KEYWORD)
-    yield call(deleteKeyword, keyword)
-  }
+  yield takeEvery(actions.DELETE_KEYWORD, doDeleteKeyword)
 }
 
 export default function* root() {
