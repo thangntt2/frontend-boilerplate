@@ -7,3 +7,34 @@
   color: white;
   width: 300px;
 }
+
+.listRoute {
+  overflow: hidden;
+  margin-right: 2em;
+  margin-top: 0; margin-bottom: 0;
+  display:block;
+  float: right;
+}
+
+.listRoute li {
+  display:inline-block;
+  vertical-align:middle;
+  margin-right:2em;
+  position:relative;
+  line-height:50px;
+  transition:top .3s ease;
+}
+
+button {
+  color: rgba(95, 108, 122, 0.5);
+  background: white;
+  border: none;
+  font-family: 'Roboto', sans-serif;
+  font-size: 12px;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+button:hover {
+  color: #338DDC;
+}

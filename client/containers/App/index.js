@@ -10,6 +10,12 @@ import { navigate } from '../../actions'
 
 injectTapEventPlugin()
 
+const listRoute = [
+  { name: 'Kênh', link: '/channels' },
+  { name: 'Metacontent', link: '/metacontents' },
+  { name: 'Từ khóa', link: '/keywords' },
+]
+
 class App extends Component {
   constructor(props) {
     super(props)
@@ -32,6 +38,7 @@ class App extends Component {
             loggedIn={loggedIn}
             navigate={this.props.navigate}
             zDepth={1}
+            listRoute={listRoute}
           />
           <div className={style.children}>
             {children}
