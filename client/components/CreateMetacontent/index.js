@@ -76,8 +76,12 @@ class CreateMetacontent extends React.Component {
               <Checkbox
                 key={index}
                 checked={includes(selectednewsProviders, newsProvider)}
-                onCheck={onNewsProviderChange}
+                onCheck={(e, isChecked) => onNewsProviderChange(newsProvider, isChecked)}
                 label={newsProvider}
+                style={{
+                  width: '50%',
+                  display: 'inline-block',
+                }}
               />
             )}
           </div>

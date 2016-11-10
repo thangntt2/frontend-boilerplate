@@ -67,15 +67,16 @@ class CreateMetacontentContainer extends React.Component {
     this.setState({ selectedChannel: parseInt(value, 10) })
   }
 
-  handleNewsProviderChange(e) {
-    if (!e.target.checked) {
+  handleNewsProviderChange(provider, ischecked) {
+    console.log(provider)
+    if (!ischecked) {
       this.setState({
         selectednewsProviders: this.state.selectednewsProviders
-          .filter(newsProvider => (newsProvider !== e.target.name)),
+          .filter(newsProvider => (provider !== newsProvider)),
       })
     } else {
       this.setState({
-        selectednewsProviders: this.state.selectednewsProviders.concat(e.target.name),
+        selectednewsProviders: this.state.selectednewsProviders.concat(provider),
       })
     }
   }
