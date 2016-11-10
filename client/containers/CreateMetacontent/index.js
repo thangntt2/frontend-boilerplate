@@ -31,8 +31,10 @@ const newsProviders = [
 
 const lg_layout = x => [
   { i: 'search', x, y: 0, w: 4, h: 0, static: true },
-  x === 0 && { i: 'results', x: x + 4, y: 0, w: x === 0 ? 8 : 0, h: 0, static: true },
+  { i: 'results', x: x + 4, y: 0, w: x === 0 ? 8 : 0, h: 0, static: true },
 ]
+
+console.log(lg_layout(4))
 
 const sm_layout = x => [
   { i: 'search', x, y: 0, w: 4, h: 2, static: true },
@@ -68,7 +70,6 @@ class CreateMetacontentContainer extends React.Component {
   }
 
   handleNewsProviderChange(provider, ischecked) {
-    console.log(provider)
     if (!ischecked) {
       this.setState({
         selectednewsProviders: this.state.selectednewsProviders
@@ -119,6 +120,7 @@ class CreateMetacontentContainer extends React.Component {
         breakpoints={{ lg: 1200, sm: 768 }}
         cols={{ lg: 12, sm: 6 }}
         autoSize
+        useCSSTransforms
         layouts={{ lg: lg_layout(result ? 0 : 4), sm: sm_layout(4) }}
       >
         <div key="search" style={{ transition: 'transform .7s' }}>
@@ -138,9 +140,10 @@ class CreateMetacontentContainer extends React.Component {
             submitFailure={submitFailure}
           />
         </div>
-        <div key="results" style={{ transitionDelay: '.7s' }}>
+        <div key="results" style={{ transitionDelay: '.7s', transition: 'transform .7s' }}>
           {result && result.length > 0 &&
             <MetacontentResults
+              key={result}
               result={result}
               handleClick={this.handleClickResult}
               isSubmitting={submiting}
