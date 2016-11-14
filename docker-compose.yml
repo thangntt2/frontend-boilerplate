@@ -1,0 +1,14 @@
+node:
+  build: .
+  volumes:
+    - .:/src/app
+  command: npm build
+
+nginx:
+  build: ./nginx
+  volumes_from:
+    - node
+  links:
+    - node
+  ports:
+    - "80:80"

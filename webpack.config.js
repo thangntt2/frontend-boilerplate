@@ -19,6 +19,7 @@ module.exports = {
   output: {
     path: path.join(__dirname, './static'),
     filename: 'bundle.js',
+    publicPath: '/build/',
   },
   node: {
     fs: 'empty',
