@@ -1,6 +1,6 @@
 const request = require('superagent')
 
-const API_BASE = 'http://54.148.247.77:8089/'
+const API_BASE = 'http://thangntt.com:8089/'
 /**
 * Logs a user in, returning a promise with `true` when done
 * @param  {string} username The username of the user

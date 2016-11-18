@@ -1,7 +1,7 @@
 
 const request = require('superagent')
 
-const API_BASE = 'http://54.148.247.77:8089/api/'
+const API_BASE = 'http://thangntt.com:8089/api/'
 
 export const fetchMetacontentsList = accessToken =>
   request.get(`${API_BASE}/metacontents`)

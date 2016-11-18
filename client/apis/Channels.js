@@ -2,7 +2,7 @@
 // import { fetch } from 'isomorphic-fetch'
 import request from 'superagent'
 
-const API = 'http://54.148.247.77:8089/api'
+const API = 'http://thangntt.com:8089/api'
 
 export function fetchChannelsList(accessToken) {
   return request.get(`${API}/channels`)
