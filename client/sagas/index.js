@@ -4,7 +4,7 @@ import { delay, takeEvery } from 'redux-saga'
 import * as apis from '../apis'
 import * as actions from '../actions'
 
-const { channels, metacontents, keywords, login } = actions
+const { channels, metacontents, keywords, login, users } = actions
 
 export const getAccessToken = state => state.auth.access_token
 
@@ -91,6 +91,7 @@ function* handleLoginFlow(username, password) {
 export const fetchChannels = accessToken => fetchData.bind(null, channels, apis.Channel.fetchChannelsList, accessToken)
 export const fetchMetacontents = accessToken => fetchData.bind(null, metacontents, apis.Metacontent.fetchMetacontentsList, accessToken)
 export const fetchKeywords = accessToken => fetchData.bind(null, keywords, apis.Keyword.fetchKeywordsList, accessToken)
+export const fetchUsers = accessToken => fetchData.bind(null, users, apis.User.fetchUsersList, accessToken)
 
 function* loadChannels() {
   const accessToken = yield select(getAccessToken)
@@ -116,6 +117,12 @@ function* loadMetacontents() {
     call(fetch1),
     call(fetch2),
   ]
+}
+
+function* loadUsers() {
+  const accessToken = yield select(getAccessToken)
+  const fetch = fetchUsers(accessToken)
+  yield call(fetch)
 }
 
 function* submitMetacontent(data) {
@@ -285,6 +292,14 @@ function* watchDeleteKeyword() {
   yield takeEvery(actions.DELETE_KEYWORD, doDeleteKeyword)
 }
 
+function* watchLoadUsers() {
+  while (true) {
+    yield take(actions.LOAD_USER_PAGE)
+
+    yield call(loadUsers)
+  }
+}
+
 export default function* root() {
   yield [
     fork(watchLoadChannels),
@@ -301,5 +316,6 @@ export default function* root() {
     fork(watchDeleteChannel),
     fork(watchDeleteMetacontent),
     fork(watchDeleteKeyword),
+    fork(watchLoadUsers),
   ]
 }

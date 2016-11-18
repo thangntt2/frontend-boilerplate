@@ -2,7 +2,7 @@
 import React, { PropTypes } from 'react'
 import { connect } from 'react-redux'
 import Keywords from '../../components/Keywords'
-import { loadKeywordsPage, navigate, deleteKeyword, submitKeyword } from '../../actions'
+import { loadKeywordsPage, deleteKeyword, submitKeyword } from '../../actions'
 
 class KeywordsContainer extends React.Component {
   constructor(props) {
@@ -69,7 +69,6 @@ KeywordsContainer.propTypes = {
   keywords: PropTypes.array,
   channels: PropTypes.array,
   loadKeywordsPage: PropTypes.func.isRequired,
-  navigate: PropTypes.func.isRequired,
   deleteKeyword: PropTypes.func.isRequired,
   submitKeyword: PropTypes.func.isRequired,
 }
@@ -84,7 +83,6 @@ function mapStateToProps(state) {
 
 export default connect(mapStateToProps, {
   loadKeywordsPage,
-  navigate,
   deleteKeyword,
   submitKeyword,
 })(KeywordsContainer)

@@ -35,7 +35,7 @@ class CreateKeywords extends React.Component {
     const actions = [
       <FlatButton
         label={isSubmit ? 'Đang tạo...' : 'Tạo'}
-        disable={isSubmit}
+        disables={isSubmit}
         primary
         keyboardFocused
         onTouchTap={this.handleSubmit}
