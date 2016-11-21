@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 import React, { Component, PropTypes } from 'react'
 import { loadChannelsPage, deleteChannel, submitChannel } from '../../actions'
 import Channels from '../../components/Channels'
-
+import DeleteConfirm from '../../components/Channels/deleteConfirm'
 
 class ChannelsContainer extends Component {
   constructor(props) {
@@ -38,15 +38,28 @@ class ChannelsContainer extends Component {
     return (
       <div>
         { !(channels) ? null :
-          <Channels
-            channels={channels}
-            onDeleteChannel={this.handleDeleteChannel}
-            deletting={deletting}
-            onCreateButton={this.handleOnCreateButton}
-            open={this.state.openCreate}
-            handleClose={() => this.setState({ openCreate: false })}
-            onSubmit={this.handleSubmit}
-          />
+          <div>
+            <Channels
+              channels={channels}
+              onDeleteChannel={(channel) => {
+                this.setState({
+                  openDelete: true,
+                  selectedDelChannel: channel,
+                })
+              }}
+              deletting={deletting}
+              onCreateButton={this.handleOnCreateButton}
+              open={this.state.openCreate}
+              handleClose={() => this.setState({ openCreate: false })}
+              onSubmit={this.handleSubmit}
+            />
+            <DeleteConfirm
+              open={this.state.openDelete}
+              onSubmit={this.handleDeleteChannel}
+              onClose={() => { this.setState({ openDelete: false }) }}
+              channel={this.state.selectedDelChannel}
+            />
+          </div>
         }
       </div>
     )
