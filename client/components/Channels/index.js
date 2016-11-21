@@ -9,7 +9,7 @@ import ChannelsTable from './channelsTable'
 import CreateChannel from '../CreateChannel'
 
 const Channels = (props) => {
-  const { channels, onDeleteChannel, onCreateButton, onSubmit, open, handleClose } = props
+  const { channels, onDeleteChannel, onCreateButton, onSubmit, open, handleClose, isSubmit } = props
   return (
     <Paper className={style.centerbody} zDepth={2}>
       <Toolbar
@@ -34,6 +34,7 @@ const Channels = (props) => {
         onSubmit={onSubmit}
         open={open}
         handleClose={handleClose}
+        isSubmit={isSubmit}
       />
     </Paper>
   )

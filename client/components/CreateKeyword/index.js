@@ -16,6 +16,12 @@ class CreateKeywords extends React.Component {
     }
   }
 
+  componentWillReceiveProps(nextProps) {
+    if (this.props.isSubmit && !nextProps.isSubmit) {
+      this.props.handleClose()
+    }
+  }
+
   handleSubmit() {
     this.props.onSubmit(this.state.inputValue)
   }
@@ -35,7 +41,7 @@ class CreateKeywords extends React.Component {
     const actions = [
       <FlatButton
         label={isSubmit ? 'Đang tạo...' : 'Tạo'}
-        disables={isSubmit}
+        disabled={isSubmit}
         primary
         keyboardFocused
         onTouchTap={this.handleSubmit}

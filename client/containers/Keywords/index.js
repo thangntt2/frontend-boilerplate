@@ -45,7 +45,7 @@ class KeywordsContainer extends React.Component {
   }
 
   render() {
-    const { keywords, channels } = this.props
+    const { keywords, channels, submiting } = this.props
     return (
       <div>
         {channels.length > 0 &&
@@ -57,6 +57,7 @@ class KeywordsContainer extends React.Component {
             onChannelChange={this.handleChannelChange}
             onSubmit={this.handleSubmit}
             open={this.state.openCreate}
+            isSubmit={submiting}
             handleClose={() => this.setState({ openCreate: false })}
           />
         }
@@ -71,13 +72,16 @@ KeywordsContainer.propTypes = {
   loadKeywordsPage: PropTypes.func.isRequired,
   deleteKeyword: PropTypes.func.isRequired,
   submitKeyword: PropTypes.func.isRequired,
+  submiting: PropTypes.bool,
 }
 
 function mapStateToProps(state) {
   const { entities: { channels, keywords } } = state
+  const { submitData: { submiting } } = state
   return {
     channels,
     keywords,
+    submiting,
   }
 }
 

@@ -46,7 +46,7 @@ class UsersContainer extends React.Component {
   }
 
   render() {
-    const { users, auth } = this.props
+    const { users, auth, submiting, deletting } = this.props
     if (auth.level !== 'admin') {
       return (
         <header>
@@ -72,12 +72,14 @@ class UsersContainer extends React.Component {
               onSubmit={this.handleSubmit}
               open={this.state.openCreate}
               onClose={() => this.setState({ openCreate: false })}
+              isSubmit={submiting}
             />
             <DeleteComfirm
               onSubmit={this.handleDeleteSubmit}
               open={this.state.openDeleteComfirm}
               onClose={() => this.setState({ openDeleteComfirm: false })}
               user={this.state.selectedDelUser}
+              isSubmit={deletting}
             />
           </div>
         }
@@ -92,13 +94,19 @@ UsersContainer.propTypes = {
   loadUsersPage: PropTypes.func.isRequired,
   deleteUser: PropTypes.func.isRequired,
   submitUser: PropTypes.func.isRequired,
+  submiting: PropTypes.bool,
+  deletting: PropTypes.bool,
 }
 
 function mapStateToProps(state) {
   const { auth, entities: { users } } = state
+  const { submitData: { submiting } } = state
+  const { deleteData: { deletting } } = state
   return {
     auth,
     users,
+    submiting,
+    deletting,
   }
 }
 

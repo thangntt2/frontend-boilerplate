@@ -21,6 +21,12 @@ class CreateUser extends React.Component {
     }
   }
 
+  componentWillReceiveProps(nextProps) {
+    if (this.props.isSubmit && !nextProps.isSubmit) {
+      this.props.onClose()
+    }
+  }
+
   handleSubmit() {
     const user = {
       username: this.state.id,

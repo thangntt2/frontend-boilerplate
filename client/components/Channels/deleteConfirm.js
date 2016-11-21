@@ -13,6 +13,12 @@ class DeleteComfirm extends React.Component {
     }
   }
 
+  componentWillReceiveProps(nextProps) {
+    if (this.props.isSubmit && !nextProps.isSubmit) {
+      this.props.onClose()
+    }
+  }
+
   handleSubmit() {
     this.props.onSubmit(this.props.channel)
   }

@@ -33,7 +33,7 @@ class ChannelsContainer extends Component {
   }
 
   render() {
-    const { channels, deletting } = this.props
+    const { channels, deletting, submiting } = this.props
 
     return (
       <div>
@@ -47,17 +47,18 @@ class ChannelsContainer extends Component {
                   selectedDelChannel: channel,
                 })
               }}
-              deletting={deletting}
               onCreateButton={this.handleOnCreateButton}
               open={this.state.openCreate}
               handleClose={() => this.setState({ openCreate: false })}
               onSubmit={this.handleSubmit}
+              isSubmit={submiting}
             />
             <DeleteConfirm
               open={this.state.openDelete}
               onSubmit={this.handleDeleteChannel}
               onClose={() => { this.setState({ openDelete: false }) }}
               channel={this.state.selectedDelChannel}
+              isSubmit={deletting}
             />
           </div>
         }
@@ -78,14 +79,17 @@ ChannelsContainer.propTypes = {
   deleteChannel: PropTypes.func.isRequired,
   submitChannel: PropTypes.func.isRequired,
   deletting: PropTypes.bool,
+  submiting: PropTypes.bool,
 }
 
 function mapStateToProps(state) {
   const { entities: { channels } } = state
+  const { submitData: { submiting } } = state
   const { deleteData: { deletting } } = state
   return {
     channels,
     deletting,
+    submiting,
   }
 }
 

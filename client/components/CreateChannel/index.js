@@ -18,6 +18,12 @@ class CreateChannel extends React.Component {
     }
   }
 
+  componentWillReceiveProps(nextProps) {
+    if (this.props.isSubmit && !nextProps.isSubmit) {
+      this.props.handleClose()
+    }
+  }
+
   handleEnterPress(e) {
     if (e.key === 'Enter') {
       this.handleSubmit()

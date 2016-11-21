@@ -49,10 +49,11 @@ function* deleteData(data, entity, apiFn, accessToken, reload) {
   yield put(actions.resetMessage())
 }
 
-function* sendData(data, entity, apiFn, accessToken) {
+function* sendData(data, entity, apiFn, accessToken, reload) {
   yield put(entity.submit(data))
   const { response, error } = yield call(apiFn, data, accessToken)
   if (response) {
+    yield call(reload)
     yield put(entity.submit_ok(data))
   } else {
     const errorMessage = {
@@ -127,23 +128,23 @@ function* loadUsers() {
 
 function* submitMetacontent(data) {
   const accessToken = yield select(getAccessToken)
-  yield call(sendData, data, metacontents, apis.Metacontent.submit, accessToken)
+  yield call(sendData, data, metacontents, apis.Metacontent.submit, accessToken, loadMetacontents)
 }
 
 function* submitKeyword(data) {
   const accessToken = yield select(getAccessToken)
-  yield call(sendData, data, keywords, apis.Keyword.submit, accessToken)
+  yield call(sendData, data, keywords, apis.Keyword.submit, accessToken, loadKeywords)
   yield call(loadKeywords)
 }
 
 function* submitChannel(data) {
   const accessToken = yield select(getAccessToken)
-  yield call(sendData, data, channels, apis.Channel.submit, accessToken)
+  yield call(sendData, data, channels, apis.Channel.submit, accessToken, loadChannels)
 }
 
 function* submitUser(data) {
   const accessToken = yield select(getAccessToken)
-  yield call(sendData, data, users, apis.User.submit, accessToken)
+  yield call(sendData, data, users, apis.User.submit, accessToken, loadUsers)
 }
 
 function* deleteMetacontent(metacontent) {

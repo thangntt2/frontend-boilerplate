@@ -9,7 +9,7 @@ import KeywordsTable from './keywordsTable'
 import CreateKeywords from '../CreateKeyword'
 
 const Keywords = (props) => {
-  const { channels, keywords, handleCreateButton, onDeleteKeyword, open, handleClose, onChannelChange, onSubmit } = props
+  const { channels, keywords, handleCreateButton, onDeleteKeyword, open, handleClose, onChannelChange, onSubmit, isSubmit } = props
   return (
     <Paper className={style.centerbody} zDepth={2}>
       <Toolbar
@@ -40,6 +40,7 @@ const Keywords = (props) => {
         onSubmit={onSubmit}
         open={open}
         handleClose={handleClose}
+        isSubmit={isSubmit}
       />
     </Paper>
   )
@@ -54,6 +55,7 @@ Keywords.propTypes = {
   handleClose: PropTypes.func.isRequired,
   onChannelChange: PropTypes.func.isRequired,
   onSubmit: PropTypes.func.isRequired,
+  isSubmit: PropTypes.bool,
 }
 
 export default Keywords

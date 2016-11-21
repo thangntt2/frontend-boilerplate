@@ -35,18 +35,16 @@ function submitData(state = { submiting: false }, action) {
 
 function deleteData(state = { deletting: false }, action) {
   if (action.type.includes('DELETE')) {
-    if (action.id) { // mean deletting
-      return ({
-        ...state,
-        deletting: true,
-      })
-    }
     if (action.success || action.error) {
       return ({
         ...state,
         deletting: false,
       })
     }
+    return ({
+      ...state,
+      deletting: true,
+    })
   }
   return state
 }
