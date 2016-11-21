@@ -7,7 +7,7 @@ const CategoryRadioGroup = (props) => {
     <div>
       <RadioButtonGroup
         name="category"
-        defaultSelected={selected}
+        valueSelected={selected}
         onChange={handleOptionChange}
       >
         {categoryList.map(category =>

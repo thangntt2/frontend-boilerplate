@@ -50,11 +50,13 @@ class App extends Component {
           <div className={style.children}>
             {children}
           </div>
-          <Snackbar
-            open={!!this.props.success || !!this.props.error}
-            message={this.props.success ? this.props.success : this.props.error}
-            autoHideDuration={4000}
-          />
+          {(!!this.props.success || !!this.props.error) &&
+            <Snackbar
+              open={!!this.props.success || !!this.props.error}
+              message={this.props.success ? this.props.success : this.props.error}
+              autoHideDuration={4000}
+            />
+          }
         </div>
       </MuiThemeProvider>
     )
