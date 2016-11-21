@@ -94,8 +94,14 @@ class CreateMetacontent extends React.Component {
           onChange={(event) => { this.setState({ inputValue: event.target.value }) }}
           autoFocus
           fullWidth
+          onKeyPress={this.handleEnterPress}
         />
-        <RaisedButton label="Tìm kiếm" primary onClick={this.handleButtonClicked} />
+        <RaisedButton
+          label={isSearching ? 'Đang tìm kiếm...' : 'Tìm kiếm'}
+          primary
+          onClick={this.handleButtonClicked}
+          disabled={isSearching}
+        />
       </Paper>
     )
   }
@@ -113,8 +119,6 @@ CreateMetacontent.propTypes = {
   onNewsProviderChange: PropTypes.func.isRequired,
   isSearching: PropTypes.bool,
   onSearch: PropTypes.func.isRequired,
-  submitSuccess: PropTypes.string,
-  submitFailure: PropTypes.string,
 }
 
 export default CreateMetacontent

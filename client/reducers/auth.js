@@ -16,6 +16,7 @@ const auth = (state = { id_token: undefined, access_token: undefined, expiresOn:
         id_token: response.id,
         access_token: response.accessToken,
         expires_on: response.accessTokenExpiresOn,
+        level: response.level,
         submitting: false,
       })
     }

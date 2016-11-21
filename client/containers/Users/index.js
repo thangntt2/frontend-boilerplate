@@ -2,7 +2,10 @@
 import React, { PropTypes } from 'react'
 import { connect } from 'react-redux'
 import Users from '../../components/Users'
+import DeleteComfirm from '../../components/Users/deleteComfirm'
+import CreateUser from '../../components/CreateUser'
 import { loadUsersPage, deleteUser, submitUser } from '../../actions'
+
 
 class UsersContainer extends React.Component {
   constructor(props) {
@@ -10,13 +13,16 @@ class UsersContainer extends React.Component {
     this.handleClickCreateButton = this.handleClickCreateButton.bind(this)
     this.handleDeleteUser = this.handleDeleteUser.bind(this)
     this.handleSubmit = this.handleSubmit.bind(this)
+    this.handleDeleteSubmit = this.handleDeleteSubmit.bind(this)
     this.state = {
       openCreate: false,
     }
   }
 
   componentWillMount() {
-    this.props.loadUsersPage()
+    if (this.props.auth.level === 'admin') {
+      this.props.loadUsersPage()
+    }
   }
 
   handleSubmit(user) {
@@ -31,19 +37,49 @@ class UsersContainer extends React.Component {
     this.setState({ openCreate: true })
   }
 
+  handleDeleteSubmit(delUser, pw) {
+    const user = {
+      ...delUser,
+      password: pw,
+    }
+    this.props.deleteUser(user)
+  }
+
   render() {
-    const { users } = this.props
+    const { users, auth } = this.props
+    if (auth.level !== 'admin') {
+      return (
+        <header>
+          Bạn không có quyền truy cập vào trang này!
+        </header>
+      )
+    }
     return (
       <div>
         {users && users.length > 0 &&
-          <Users
-            users={users}
-            onCreateUser={this.handleClickCreateButton}
-            onDeleteUser={this.handleDeleteUser}
-            onSubmit={this.handleSubmit}
-            open={this.state.openCreate}
-            onClose={() => this.setState({ openCreate: false })}
-          />
+          <div>
+            <Users
+              users={users}
+              onCreateUser={this.handleClickCreateButton}
+              onDeleteUser={(user) => {
+                this.setState({
+                  openDeleteComfirm: true,
+                  selectedDelUser: user,
+                })
+              }}
+            />
+            <CreateUser
+              onSubmit={this.handleSubmit}
+              open={this.state.openCreate}
+              onClose={() => this.setState({ openCreate: false })}
+            />
+            <DeleteComfirm
+              onSubmit={this.handleDeleteSubmit}
+              open={this.state.openDeleteComfirm}
+              onClose={() => this.setState({ openDeleteComfirm: false })}
+              user={this.state.selectedDelUser}
+            />
+          </div>
         }
       </div>
     )
@@ -52,14 +88,16 @@ class UsersContainer extends React.Component {
 
 UsersContainer.propTypes = {
   users: PropTypes.array,
+  auth: PropTypes.object,
   loadUsersPage: PropTypes.func.isRequired,
   deleteUser: PropTypes.func.isRequired,
   submitUser: PropTypes.func.isRequired,
 }
 
 function mapStateToProps(state) {
-  const { entities: { users } } = state
+  const { auth, entities: { users } } = state
   return {
+    auth,
     users,
   }
 }

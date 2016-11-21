@@ -6,11 +6,10 @@ import Paper from 'material-ui/Paper'
 import FontIcon from 'material-ui/FontIcon'
 import globalstyle from '../../style/style.css'
 import UsersTable from './usersTable'
-import CreateUser from '../CreateUser'
 
 
 const Users = (props) => {
-  const { users, onCreateUser, onDeleteUser, onSubmit, open, onClose } = props
+  const { users, onCreateUser, onDeleteUser } = props
   return (
     <Paper className={globalstyle.centerbody}>
       <Toolbar
@@ -34,11 +33,6 @@ const Users = (props) => {
         users={users}
         onDeleteUser={onDeleteUser}
       />
-      <CreateUser
-        onSubmit={onSubmit}
-        open={open}
-        onClose={onClose}
-      />
     </Paper>
   )
 }
@@ -47,9 +41,6 @@ Users.propTypes = {
   users: PropTypes.array,
   onCreateUser: PropTypes.func.isRequired,
   onDeleteUser: PropTypes.func.isRequired,
-  onSubmit: PropTypes.func.isRequired,
-  open: PropTypes.bool,
-  onClose: PropTypes.func.isRequired,
 }
 
 export default Users

@@ -16,6 +16,13 @@ const listRoute = [
   { name: 'Từ khóa', link: '/keywords' },
 ]
 
+const listRouteAdmin = [
+  { name: 'Kênh', link: '/channels' },
+  { name: 'Metacontent', link: '/metacontents' },
+  { name: 'Từ khóa', link: '/keywords' },
+  { name: 'Quản lý', link: '/users' },
+]
+
 class App extends Component {
   constructor(props) {
     super(props)
@@ -38,7 +45,7 @@ class App extends Component {
             loggedIn={loggedIn}
             navigate={this.props.navigate}
             zDepth={1}
-            listRoute={listRoute}
+            listRoute={auth.level !== 'admin' ? listRoute : listRouteAdmin}
           />
           <div className={style.children}>
             {children}

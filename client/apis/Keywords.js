@@ -1,6 +1,6 @@
 const request = require('superagent')
 
-const API_BASE = 'http://thangntt.com:8089/api/'
+const API_BASE = 'http://52.34.191.221:8089/api/'
 
 export function submit(keyword, accessToken) {
   return request

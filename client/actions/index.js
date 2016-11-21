@@ -43,6 +43,8 @@ export const SUBMIT_CHANNEL = 'SUBMIT_CHANNEL'
 export const DELETE_CHANNEL = 'DELETE_CHANNEL'
 export const DELETE_METACONTENT = 'DELETE_METACONTENT'
 export const DELETE_KEYWORD = 'DELETE_KEYWORD'
+export const SUBMIT_USER = 'SUBMIT_USER'
+export const DELETE_USER = 'DELETE_USER'
 
 function action(type, payload = {}) {
   return { type, ...payload }
@@ -91,10 +93,10 @@ export const users = {
   success: response => action(USERS.SUCCESS, { response }),
   failure: error => action(USERS.FAILURE, { error }),
   submit: user => action(USERS.SUBMIT, { data: user }),
-  submit_ok: user => action(USERS.SUBMIT_OK, { success: `Tạo thành công keyword: ${user.username}` }),
+  submit_ok: user => action(USERS.SUBMIT_OK, { success: `Tạo thành công user: ${user.name}` }),
   submit_fail: error => action(USERS.SUBMIT_FAIL, { error }),
   delete: user => action(USERS.DELETE, { user }),
-  delete_ok: user => action(USERS.DELETE_OK, { success: `Xóa thành công keyword ${user.username}` }),
+  delete_ok: user => action(USERS.DELETE_OK, { success: `Xóa thành công user ${user.name}` }),
   delete_fail: error => action(USERS.DELETE_FAIL, { error }),
 }
 
@@ -118,6 +120,8 @@ export const submitMetacontent = metacontent => action(SUBMIT_METACONTENT, { met
 export const submitKeyword = keyword => action(SUBMIT_KEYWORD, { keyword })
 export const submitChannel = channel => action(SUBMIT_CHANNEL, { channel })
 export const deleteChannel = channel => action(DELETE_CHANNEL, { channel })
+export const deleteUser = user => action(DELETE_USER, { user })
+export const submitUser = user => action(SUBMIT_USER, { user })
 export const deleteMetacontent = metacontent => action(DELETE_METACONTENT, { metacontent })
 export const deleteKeyword = keyword => action(DELETE_KEYWORD, { keyword })
 export const navigateToLoginForm = () => action(NAVI_TO_LOGIN, {})
@@ -125,3 +129,4 @@ export const loginRequest = (username, password) => action(LOGIN_REQUEST, { user
 export const logoutRequire = () => action(LOGOUT_REQUEST, {})
 export const navigate = path => action(NAVIGATE, { path })
 export const resetMessage = () => action(RESET_MESSAGE)
+

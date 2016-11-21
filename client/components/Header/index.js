@@ -2,7 +2,6 @@
 import React, { PropTypes } from 'react'
 import { AppBar } from 'material-ui'
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
-import FlatButton from 'material-ui/FlatButton'
 import style from './style.css'
 
 const Header = (props) => {

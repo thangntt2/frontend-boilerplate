@@ -1,10 +1,8 @@
 
 import React, { PropTypes } from 'react'
-import Dialog from 'material-ui/Dialog'
 import FlatButton from 'material-ui/FlatButton'
 import TextField from 'material-ui/TextField'
-import SelectField from 'material-ui/SelectField'
-import MenuItem from 'material-ui/MenuItem'
+import { Modal, FormGroup, ControlLabel, FormControl } from 'react-bootstrap'
 
 class CreateUser extends React.Component {
   constructor(props) {
@@ -16,7 +14,7 @@ class CreateUser extends React.Component {
     this.state = {
       id: '',
       name: '',
-      level: '',
+      level: 'editor',
       password: '',
       passwordre: '',
       pwre: false,
@@ -24,7 +22,13 @@ class CreateUser extends React.Component {
   }
 
   handleSubmit() {
-    this.props.onSubmit(this.state.inputValue)
+    const user = {
+      username: this.state.id,
+      name: this.state.name,
+      level: this.state.level,
+      password: this.state.password,
+    }
+    this.props.onSubmit(user)
   }
 
   handleButtonClicked() {
@@ -48,30 +52,16 @@ class CreateUser extends React.Component {
 
   render() {
     const { isSubmit, open, onClose } = this.props
-    const actions = [
-      <FlatButton
-        label={isSubmit ? 'Đang tạo...' : 'Tạo'}
-        disabled={isSubmit}
-        primary
-        keyboardFocused
-        onTouchTap={this.handleSubmit}
-      />,
-      <FlatButton
-        label="Hủy"
-        primary={false}
-        onTouchTap={onClose}
-      />,
-    ]
 
     return (
-      <div>
-        <Dialog
-          title="TẠO MỚI USER"
-          actions={actions}
-          modal={false}
-          open={open}
-          onRequestClose={onClose}
-        >
+      <Modal
+        show={open}
+        onHide={onClose}
+      >
+        <Modal.Header closeButton>
+          <Modal.Title>Tạo mới User</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
           <TextField
             hintText="Tên đăng nhập"
             floatingLabelText="ID"
@@ -115,15 +105,35 @@ class CreateUser extends React.Component {
             errorText={this.state.pwre ? 'Nhập lại mật khẩu phải trùng' : undefined}
             type="password"
           />
-          <SelectField
-            floatingLabelText="Quyền người dùng"
-          >
-            <MenuItem value="low" primaryText="Chỉ đọc" />
-            <MenuItem value="editor" primaryText="Nhập liệu" />
-            <MenuItem value="admin" primaryText="Quản trị" />
-          </SelectField>
-        </Dialog>
-      </div>
+          <FormGroup controlId="formControlsSelect">
+            <ControlLabel>Quyền người dùng</ControlLabel>
+            <FormControl
+              componentClass="select"
+              placeholder="select"
+              value={this.state.level}
+              onChange={(event) => { this.setState({ level: event.target.value }) }}
+            >
+              <option value="low">Chỉ đọc</option>
+              <option value="editor">Nhập liệu</option>
+              <option value="admin">Quản trị</option>
+            </FormControl>
+          </FormGroup>
+
+          <FlatButton
+            disabled={this.state.pwre || isSubmit}
+            label={isSubmit ? 'Đang tạo...' : 'Tạo'}
+            primary
+            keyboardFocused
+            onTouchTap={this.handleSubmit}
+          />
+
+          <FlatButton
+            label="Hủy"
+            primary={false}
+            onTouchTap={onClose}
+          />
+        </Modal.Body>
+      </Modal>
     )
   }
 }

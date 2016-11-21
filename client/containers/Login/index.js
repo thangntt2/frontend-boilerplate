@@ -11,6 +11,7 @@ class LoginContainer extends React.Component {
   constructor(props) {
     super(props)
     this.handleLogin = this.handleLogin.bind(this)
+    this.handleEnterPress = this.handleEnterPress.bind(this)
     this.state = {
       username: '',
       password: '',
@@ -20,6 +21,12 @@ class LoginContainer extends React.Component {
   componentWillMount() {
     if (this.props.access_token && this.props.expires_on > new Date().getTime()) {
       this.props.navigate('/')
+    }
+  }
+
+  handleEnterPress(e) {
+    if (e.key === 'Enter') {
+      this.handleLogin()
     }
   }
 

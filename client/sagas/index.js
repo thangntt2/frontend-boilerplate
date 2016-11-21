@@ -141,6 +141,11 @@ function* submitChannel(data) {
   yield call(sendData, data, channels, apis.Channel.submit, accessToken)
 }
 
+function* submitUser(data) {
+  const accessToken = yield select(getAccessToken)
+  yield call(sendData, data, users, apis.User.submit, accessToken)
+}
+
 function* deleteMetacontent(metacontent) {
   const accessToken = yield select(getAccessToken)
   yield call(deleteData, metacontent, metacontents, apis.Metacontent.del, accessToken, loadMetacontents)
@@ -149,6 +154,11 @@ function* deleteMetacontent(metacontent) {
 function* deleteChannel(channel) {
   const accessToken = yield select(getAccessToken)
   yield call(deleteData, channel, channels, apis.Channel.del, accessToken, loadChannels)
+}
+
+function* deleteUser(user) {
+  const accessToken = yield select(getAccessToken)
+  yield call(deleteData, user, users, apis.User.del, accessToken, loadUsers)
 }
 
 function* deleteKeyword(keyword) {
@@ -265,9 +275,21 @@ function* watchSubmitChannel() {
   }
 }
 
+function* watchSubmitUser() {
+  while (true) {
+    const { user } = yield take(actions.SUBMIT_USER)
+    yield call(submitUser, user)
+  }
+}
+
 function* doDeleteChannel(action) {
   const { channel } = action
   yield call(deleteChannel, channel)
+}
+
+function* doDeleteUser(action) {
+  const { user } = action
+  yield call(deleteUser, user)
 }
 
 function* watchDeleteChannel() {
@@ -281,6 +303,10 @@ function* doDeleteMetacontent(action) {
 
 function* watchDeleteMetacontent() {
   yield takeEvery(actions.DELETE_METACONTENT, doDeleteMetacontent)
+}
+
+function* watchDeleteUser() {
+  yield takeEvery(actions.DELETE_USER, doDeleteUser)
 }
 
 function* doDeleteKeyword(action) {
@@ -317,5 +343,7 @@ export default function* root() {
     fork(watchDeleteMetacontent),
     fork(watchDeleteKeyword),
     fork(watchLoadUsers),
+    fork(watchSubmitUser),
+    fork(watchDeleteUser),
   ]
 }
