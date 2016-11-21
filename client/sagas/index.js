@@ -74,7 +74,7 @@ function* handleLoginFlow(username, password) {
   const { token, error } = yield call(apis.Auth.login, username, password)
   if (token) {
     yield put(login.success(token))
-    yield put(actions.navigate('/'))
+    yield put(actions.navigate('/metacontents'))
   } else {
     const errorMessage = {
       status: error.status,

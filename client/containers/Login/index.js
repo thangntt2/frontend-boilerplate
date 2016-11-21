@@ -20,7 +20,7 @@ class LoginContainer extends React.Component {
 
   componentWillMount() {
     if (this.props.access_token && this.props.expires_on > new Date().getTime()) {
-      this.props.navigate('/')
+      this.props.navigate('/channels')
     }
   }
 
@@ -39,8 +39,8 @@ class LoginContainer extends React.Component {
     return (
       <Paper className={style.centerbody} >
         <TextField
-          hintText="thangntt@hotmail.com"
-          floatingLabelText="Email"
+          hintText="MyTV"
+          floatingLabelText="Tên đăng nhập"
           floatingLabelFixed
           value={this.state.username}
           onChange={(event) => { this.setState({ username: event.target.value }) }}
