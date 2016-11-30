@@ -53,7 +53,7 @@ class CreateMetacontentContainer extends React.Component {
   }
 
   componentWillReceiveProps(nextProps) {
-    if (!this.props.newsp && nextProps.newsp) {
+    if ((!this.state.selectednewsProviders || this.state.selectednewsProviders.length === 0) && nextProps.newsp) {
       this.setState({
         selectednewsProviders: nextProps.newsp,
       })
@@ -72,7 +72,7 @@ class CreateMetacontentContainer extends React.Component {
     if (!ischecked) {
       this.setState({
         selectednewsProviders: this.state.selectednewsProviders
-          .filter(newsProvider => (provider !== newsProvider)),
+          .filter(newsProvider => (provider.name !== newsProvider.name)),
       })
     } else {
       this.setState({

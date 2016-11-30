@@ -49,6 +49,8 @@ class CreateMetacontent extends React.Component {
       isSearching,
     } = this.props
 
+    const snps = selectednewsProviders ? selectednewsProviders.map(np => np.name) : []
+
     return (
       <Paper className={style.searchform}>
         <Toolbar
@@ -75,7 +77,7 @@ class CreateMetacontent extends React.Component {
             {newsProviders.map((newsProvider, index) =>
               <Checkbox
                 key={index}
-                checked={includes(selectednewsProviders, newsProvider)}
+                checked={includes(snps, newsProvider.name)}
                 onCheck={(e, isChecked) => onNewsProviderChange(newsProvider, isChecked)}
                 label={newsProvider.name}
                 style={{
