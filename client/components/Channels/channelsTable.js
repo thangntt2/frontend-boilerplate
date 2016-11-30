@@ -11,7 +11,15 @@ const ChannelItem = (props) => {
     <TableRow {...otherProps} >
       <TableRowColumn>{channel.id}</TableRowColumn>
       <TableRowColumn>{channel.name}</TableRowColumn>
-      <TableRowColumn>{channel.icon}</TableRowColumn>
+      <TableRowColumn>
+        <img
+          className={style.img}
+          thumbnail
+          src={!(channel.image) || (channel.image.length === 0)
+            ? 'http://vignette3.wikia.nocookie.net/shokugekinosoma/images/6/60/No_Image_Available.png/revision/latest?cb=20150708082716'
+            : (channel.image)}
+        />
+      </TableRowColumn>
       <TableRowColumn>
         <FlatButton
           secondary

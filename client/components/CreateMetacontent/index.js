@@ -77,7 +77,7 @@ class CreateMetacontent extends React.Component {
                 key={index}
                 checked={includes(selectednewsProviders, newsProvider)}
                 onCheck={(e, isChecked) => onNewsProviderChange(newsProvider, isChecked)}
-                label={newsProvider}
+                label={newsProvider.name}
                 style={{
                   width: '50%',
                   display: 'inline-block',
@@ -115,7 +115,7 @@ CreateMetacontent.propTypes = {
   selectedCategory: PropTypes.string,
   onCategoryChange: PropTypes.func.isRequired,
   newsProviders: PropTypes.array,
-  selectednewsProviders: PropTypes.arrayOf(PropTypes.string),
+  selectednewsProviders: PropTypes.arrayOf(PropTypes.object),
   onNewsProviderChange: PropTypes.func.isRequired,
   isSearching: PropTypes.bool,
   onSearch: PropTypes.func.isRequired,

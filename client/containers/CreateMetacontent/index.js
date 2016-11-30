@@ -15,12 +15,6 @@ const categories = [
   { name: 'Tổ chức', value: 'organization' },
   { name: 'Bài viết', value: 'article' },
 ]
-const newsProviders = [
-  'dantri.com.vn',
-  'vnexpress.net',
-  'xahoithongtin.vn',
-  'vnmedia.vn',
-]
 
 const keyMap = {
   location: 'ctrl+1',
@@ -50,13 +44,20 @@ class CreateMetacontentContainer extends React.Component {
     this.state = {
       selectedCategory: categories[0].value,
       selectedChannel: 0,
-      selectednewsProviders: newsProviders,
       x: 4,
     }
   }
 
   componentWillMount() {
     this.props.prepareCreateMetacontent()
+  }
+
+  componentWillReceiveProps(nextProps) {
+    if (!this.props.newsp && nextProps.newsp) {
+      this.setState({
+        selectednewsProviders: nextProps.newsp,
+      })
+    }
   }
 
   handleCategoryChange(e) {
@@ -90,10 +91,11 @@ class CreateMetacontentContainer extends React.Component {
   }
 
   handleSearch(searchTerm) {
+    const selectednewsProviders = this.state.selectednewsProviders.map(newsp => newsp.name)
     this.props.searchMetacontent(
       searchTerm,
       this.state.selectedCategory,
-      this.state.selectednewsProviders,
+      selectednewsProviders,
     )
   }
 
@@ -105,6 +107,7 @@ class CreateMetacontentContainer extends React.Component {
       submiting,
       submitSuccess,
       submitFailure,
+      newsp,
     } = this.props
 
     const handlers = {
@@ -132,7 +135,7 @@ class CreateMetacontentContainer extends React.Component {
               categories={categories}
               selectedCategory={this.state.selectedCategory}
               onCategoryChange={this.handleCategoryChange}
-              newsProviders={newsProviders}
+              newsProviders={newsp}
               selectednewsProviders={this.state.selectednewsProviders}
               onNewsProviderChange={this.handleNewsProviderChange}
               isSearching={isSearching}
@@ -159,6 +162,7 @@ class CreateMetacontentContainer extends React.Component {
 
 CreateMetacontentContainer.propTypes = {
   channels: PropTypes.array,
+  newsp: PropTypes.array,
   prepareCreateMetacontent: PropTypes.func.isRequired,
   searchMetacontent: PropTypes.func.isRequired,
   submitMetacontent: PropTypes.func.isRequired,
@@ -170,11 +174,12 @@ CreateMetacontentContainer.propTypes = {
 }
 
 function mapStateToProp(state) {
-  const { entities: { channels } } = state
+  const { entities: { channels, newsp } } = state
   const { searchMetacontent: { isSearching, result } } = state
   const { submitData: { submiting, success, error } } = state
   return {
     channels,
+    newsp,
     isSearching,
     result,
     submiting,

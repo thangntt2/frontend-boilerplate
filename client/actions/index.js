@@ -21,6 +21,7 @@ export const METACONTENTS = createRequestTypes('METACONTENTS')
 export const CHANNELS = createRequestTypes('CHANNELS')
 export const KEYWORDS = createRequestTypes('KEYWORDS')
 export const USERS = createRequestTypes('USERS')
+export const NEWSPROVIDER = createRequestTypes('NEWS')
 export const LOGIN = createRequestTypes('LOGIN')
 
 export const NAVIGATE = 'NAVIGATE'
@@ -45,6 +46,9 @@ export const DELETE_METACONTENT = 'DELETE_METACONTENT'
 export const DELETE_KEYWORD = 'DELETE_KEYWORD'
 export const SUBMIT_USER = 'SUBMIT_USER'
 export const DELETE_USER = 'DELETE_USER'
+export const LOAD_NEWSP_PAGE = 'LOAD_NEWSP_PAGE'
+export const SUBMIT_NEWSP = 'SUBMIT_NEWSP'
+export const DELETE_NEWSP = 'DELETE_NEWSP'
 
 function action(type, payload = {}) {
   return { type, ...payload }
@@ -100,6 +104,18 @@ export const users = {
   delete_fail: error => action(USERS.DELETE_FAIL, { error }),
 }
 
+export const newsproviders = {
+  request: () => action(NEWSPROVIDER.REQUEST, {}),
+  success: response => action(NEWSPROVIDER.SUCCESS, { response }),
+  failure: error => action(NEWSPROVIDER.FAILURE, { error }),
+  submit: newsp => action(NEWSPROVIDER.SUBMIT, { data: newsp }),
+  submit_ok: newsp => action(NEWSPROVIDER.SUBMIT_OK, { success: `Thêm thành công báo: ${newsp.name}` }),
+  submit_fail: error => action(NEWSPROVIDER.SUBMIT_FAIL, { error }),
+  delete: newsp => action(NEWSPROVIDER.DELETE, { newsp }),
+  delete_ok: newsp => action(NEWSPROVIDER.DELETE_OK, { success: `Xóa thành công báo ${newsp.name}` }),
+  delete_fail: error => action(NEWSPROVIDER.DELETE_FAIL, { error }),
+}
+
 export const login = {
   request: (username, password) => action(LOGIN.REQUEST, { username, password }),
   success: response => action(LOGIN.SUCCESS, { response }),
@@ -110,6 +126,7 @@ export const loadMetacontentsPage = () => action(LOAD_METACONTENT_PAGE, {})
 export const loadKeywordsPage = () => action(LOAD_KEYWORD_PAGE, {})
 export const loadChannelsPage = () => action(LOAD_CHANNEL_PAGE, {})
 export const loadUsersPage = () => action(LOAD_USER_PAGE, {})
+export const loadNewsPage = () => action(LOAD_NEWSP_PAGE, {})
 // export const login = (username, password) => action(LOGIN.REQUEST, { username, password })
 // export const logout = () => action(LOGOUT.REQUEST, {})
 export const prepareCreateMetacontent = () => action(PREPARE_CREATE_MT, {})
@@ -122,8 +139,10 @@ export const submitChannel = channel => action(SUBMIT_CHANNEL, { channel })
 export const deleteChannel = channel => action(DELETE_CHANNEL, { channel })
 export const deleteUser = user => action(DELETE_USER, { user })
 export const submitUser = user => action(SUBMIT_USER, { user })
+export const submitNewsp = newsp => action(SUBMIT_NEWSP, { newsp })
 export const deleteMetacontent = metacontent => action(DELETE_METACONTENT, { metacontent })
 export const deleteKeyword = keyword => action(DELETE_KEYWORD, { keyword })
+export const deleteNewsp = newsp => action(DELETE_NEWSP, { newsp })
 export const navigateToLoginForm = () => action(NAVI_TO_LOGIN, {})
 export const loginRequest = (username, password) => action(LOGIN_REQUEST, { username, password })
 export const logoutRequire = () => action(LOGOUT_REQUEST, {})

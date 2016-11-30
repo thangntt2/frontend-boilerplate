@@ -1,3 +1,9 @@
 .usersTable {
   margin-top: 50px;
 }
+
+.bottomnav {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+}

@@ -3,3 +3,10 @@
   display: block;
   margin: 0 auto;
 }
+
+.img {
+  max-height: 50px;
+  width: auto;
+  display: block;
+  margin: 0 auto;
+}

@@ -18,7 +18,7 @@ const Keywords = (props) => {
         }}
       >
         <ToolbarGroup>
-          <ToolbarTitle text="DANH SÁCH TỪ KHÓA" />
+          <ToolbarTitle text={'DANH SÁCH TỪ KHÓA'} />
         </ToolbarGroup>
         <ToolbarGroup>
           <FlatButton

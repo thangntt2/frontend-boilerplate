@@ -47,7 +47,7 @@ const MetacontentsResults = (props) => {
   const { result, handleClick, isSubmitting } = props
   return (
     <div style={{ display: 'inline-block' }}>
-      {result.map(metacontent => (
+      {result.length > 0 && result.map(metacontent => (
         <OnHoverCard metacontent={metacontent} handleClick={handleClick} />
       ))}
     </div>)

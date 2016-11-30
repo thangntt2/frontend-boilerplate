@@ -4,7 +4,7 @@ import { delay, takeEvery } from 'redux-saga'
 import * as apis from '../apis'
 import * as actions from '../actions'
 
-const { channels, metacontents, keywords, login, users } = actions
+const { channels, metacontents, keywords, login, users, newsproviders } = actions
 
 export const getAccessToken = state => state.auth.access_token
 
@@ -93,6 +93,7 @@ export const fetchChannels = accessToken => fetchData.bind(null, channels, apis.
 export const fetchMetacontents = accessToken => fetchData.bind(null, metacontents, apis.Metacontent.fetchMetacontentsList, accessToken)
 export const fetchKeywords = accessToken => fetchData.bind(null, keywords, apis.Keyword.fetchKeywordsList, accessToken)
 export const fetchUsers = accessToken => fetchData.bind(null, users, apis.User.fetchUsersList, accessToken)
+export const fetchNewsP = accessToken => fetchData.bind(null, newsproviders, apis.NewsP.fetchNewsProviderList, accessToken)
 
 function* loadChannels() {
   const accessToken = yield select(getAccessToken)
@@ -120,6 +121,12 @@ function* loadMetacontents() {
   ]
 }
 
+function* loadNewsProviders() {
+  const accessToken = yield select(getAccessToken)
+  const fetch = fetchNewsP(accessToken)
+  yield call(fetch)
+}
+
 function* loadUsers() {
   const accessToken = yield select(getAccessToken)
   const fetch = fetchUsers(accessToken)
@@ -135,6 +142,11 @@ function* submitKeyword(data) {
   const accessToken = yield select(getAccessToken)
   yield call(sendData, data, keywords, apis.Keyword.submit, accessToken, loadKeywords)
   yield call(loadKeywords)
+}
+
+function* submitNewsPaper(data) {
+  const accessToken = yield select(getAccessToken)
+  yield call(sendData, data, newsproviders, apis.NewsP.submit, accessToken, loadNewsProviders)
 }
 
 function* submitChannel(data) {
@@ -165,6 +177,11 @@ function* deleteUser(user) {
 function* deleteKeyword(keyword) {
   const accessToken = yield select(getAccessToken)
   yield call(deleteData, keyword, keywords, apis.Keyword.del, accessToken, loadKeywords)
+}
+
+function* deleteNewsProvider(newsp) {
+  const accessToken = yield select(getAccessToken)
+  yield call(deleteData, newsp, newsproviders, apis.NewsP.del, accessToken, loadNewsProviders)
 }
 
 function* searchMetacontent(entity, category, sites) {
@@ -219,6 +236,7 @@ function* watchPrepareCreateMetacontent() {
     yield take(actions.PREPARE_CREATE_MT)
 
     yield call(loadChannels)
+    yield call(loadNewsProviders)
   }
 }
 
@@ -234,6 +252,13 @@ function* watchSubmitMetacontent() {
   while (true) {
     const { metacontent } = yield take(actions.SUBMIT_METACONTENT)
     yield call(submitMetacontent, metacontent)
+  }
+}
+
+function* watchSubmitNewsp() {
+  while (true) {
+    const { newsp } = yield take(actions.SUBMIT_NEWSP)
+    yield call(submitNewsPaper, newsp)
   }
 }
 
@@ -297,6 +322,15 @@ function* watchDeleteChannel() {
   yield takeEvery(actions.DELETE_CHANNEL, doDeleteChannel)
 }
 
+function* doDeleteNewsProvider(action) {
+  const { newsp } = action
+  yield call(deleteNewsProvider, newsp)
+}
+
+function* watchDeleteNewsProvider() {
+  yield takeEvery(actions.DELETE_NEWSP, doDeleteNewsProvider)
+}
+
 function* doDeleteMetacontent(action) {
   const { metacontent } = action
   yield call(deleteMetacontent, metacontent)
@@ -327,6 +361,14 @@ function* watchLoadUsers() {
   }
 }
 
+function* watchLoadNewsProviders() {
+  while (true) {
+    yield take(actions.LOAD_NEWSP_PAGE)
+
+    yield call(loadNewsProviders)
+  }
+}
+
 export default function* root() {
   yield [
     fork(watchLoadChannels),
@@ -346,5 +388,8 @@ export default function* root() {
     fork(watchLoadUsers),
     fork(watchSubmitUser),
     fork(watchDeleteUser),
+    fork(watchLoadNewsProviders),
+    fork(watchSubmitNewsp),
+    fork(watchDeleteNewsProvider),
   ]
 }
