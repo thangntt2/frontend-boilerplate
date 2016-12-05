@@ -9,8 +9,8 @@ const NewsProviderRow = (props) => {
 
   return (
     <TableRow {...otherProps} >
+      <TableRowColumn>{newsp.name}</TableRowColumn>
       <TableRowColumn>{newsp.baseurl}</TableRowColumn>
-      <TableRowColumn>{newsp.url}</TableRowColumn>
       <TableRowColumn>
         <FlatButton secondary onClick={() => onDeleteNewsp(newsp)}>
           Xóa
@@ -34,6 +34,7 @@ const NewsProvidersTable = (props) => {
           <TableRow>
             <TableHeaderColumn>Tên báo</TableHeaderColumn>
             <TableHeaderColumn>Địa chỉ</TableHeaderColumn>
+            <TableHeaderColumn>Thao tác</TableHeaderColumn>
           </TableRow>
         </TableHeader>
         <TableBody stripedRows showRowHover>
