@@ -4,7 +4,7 @@ import { delay, takeEvery } from 'redux-saga'
 import * as apis from '../apis'
 import * as actions from '../actions'
 
-const { channels, metacontents, keywords, login, users, newsproviders } = actions
+const { channels, metacontents, keywords, login, users, newsproviders, mock } = actions
 
 export const getAccessToken = state => state.auth.access_token
 
@@ -174,6 +174,22 @@ function* deleteUser(user) {
   yield call(deleteData, user, users, apis.User.del, accessToken, loadUsers)
 }
 
+function* uploadMock(channel, file) {
+  const accessToken = yield select(getAccessToken)
+  // yield call(apis.Metacontent.submitMock(channel, file, accessToken))
+  yield put(mock.submit(channel, file))
+
+  const { error } = yield call(apis.Metacontent.submitMock, channel, file, accessToken)
+  if (!error) {
+    yield put(mock.submit_ok())
+  } else {
+    yield put(mock.submit_fail(error))
+  }
+
+  yield call(delay, 5000)
+  yield put(actions.resetMessage())
+}
+
 function* deleteKeyword(keyword) {
   const accessToken = yield select(getAccessToken)
   yield call(deleteData, keyword, keywords, apis.Keyword.del, accessToken, loadKeywords)
@@ -318,6 +334,11 @@ function* doDeleteUser(action) {
   yield call(deleteUser, user)
 }
 
+function* doUploadMock(action) {
+  const { channel, file } = action
+  yield call(uploadMock, channel, file)
+}
+
 function* watchDeleteChannel() {
   yield takeEvery(actions.DELETE_CHANNEL, doDeleteChannel)
 }
@@ -351,6 +372,10 @@ function* doDeleteKeyword(action) {
 
 function* watchDeleteKeyword() {
   yield takeEvery(actions.DELETE_KEYWORD, doDeleteKeyword)
+}
+
+function* watchUploadMock() {
+  yield takeEvery(actions.UPLOAD_MOCK_DATA, doUploadMock)
 }
 
 function* watchLoadUsers() {
@@ -391,5 +416,6 @@ export default function* root() {
     fork(watchLoadNewsProviders),
     fork(watchSubmitNewsp),
     fork(watchDeleteNewsProvider),
+    fork(watchUploadMock),
   ]
 }

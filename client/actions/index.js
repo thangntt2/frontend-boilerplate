@@ -23,6 +23,7 @@ export const KEYWORDS = createRequestTypes('KEYWORDS')
 export const USERS = createRequestTypes('USERS')
 export const NEWSPROVIDER = createRequestTypes('NEWS')
 export const LOGIN = createRequestTypes('LOGIN')
+export const MOCK = createRequestTypes('MOCK')
 
 export const NAVIGATE = 'NAVIGATE'
 
@@ -49,6 +50,7 @@ export const DELETE_USER = 'DELETE_USER'
 export const LOAD_NEWSP_PAGE = 'LOAD_NEWSP_PAGE'
 export const SUBMIT_NEWSP = 'SUBMIT_NEWSP'
 export const DELETE_NEWSP = 'DELETE_NEWSP'
+export const UPLOAD_MOCK_DATA = 'UPLOAD_MOCK'
 
 function action(type, payload = {}) {
   return { type, ...payload }
@@ -122,6 +124,12 @@ export const login = {
   failure: error => action(LOGIN.FAILURE, { error }),
 }
 
+export const mock = {
+  submit: (channel, file) => action(MOCK.SUBMIT, { data: { channel, file } }),
+  submit_ok: () => action(MOCK.SUBMIT_OK, { success: 'Thêm thành công mock data' }),
+  submit_fail: error => action(MOCK.SUBMIT_FAIL, { error }),
+}
+
 export const loadMetacontentsPage = () => action(LOAD_METACONTENT_PAGE, {})
 export const loadKeywordsPage = () => action(LOAD_KEYWORD_PAGE, {})
 export const loadChannelsPage = () => action(LOAD_CHANNEL_PAGE, {})
@@ -148,4 +156,5 @@ export const loginRequest = (username, password) => action(LOGIN_REQUEST, { user
 export const logoutRequire = () => action(LOGOUT_REQUEST, {})
 export const navigate = path => action(NAVIGATE, { path })
 export const resetMessage = () => action(RESET_MESSAGE)
+export const uploadMockData = ({ channel, file }) => action(UPLOAD_MOCK_DATA, { channel, file })
 

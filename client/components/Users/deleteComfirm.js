@@ -50,13 +50,13 @@ class DeleteComfirm extends React.Component {
             label={isSubmit ? 'Đang xóa...' : 'Xác nhận'}
             primary
             keyboardFocused
-            onTouchTap={this.handleSubmit}
+            onClick={this.handleSubmit}
           />
 
           <FlatButton
             label="Hủy"
             primary={false}
-            onTouchTap={onClose}
+            onClick={onClose}
           />
         </Modal.Body>
       </Modal>

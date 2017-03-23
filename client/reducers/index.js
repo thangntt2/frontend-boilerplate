@@ -101,7 +101,7 @@ function message(state = { success: undefined, error: undefined }, action) {
       error: undefined,
     }
   } else if (error) {
-    return { error: error.text }
+    return { error: error.message }
   } else if (success) {
     return { success }
   }

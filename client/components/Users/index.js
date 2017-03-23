@@ -75,12 +75,12 @@ const Users = (props) => {
           <BottomNavigationItem
             label="Users"
             icon={recentsIcon}
-            onTouchTap={() => { onchangebtm(0) }}
+            onClick={() => { onchangebtm(0) }}
           />
           <BottomNavigationItem
             label="Danh sách báo"
             icon={favoritesIcon}
-            onTouchTap={() => { onchangebtm(1) }}
+            onClick={() => { onchangebtm(1) }}
           />
         </BottomNavigation>
       </div>

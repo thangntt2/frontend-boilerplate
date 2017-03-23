@@ -44,12 +44,12 @@ class CreateKeywords extends React.Component {
         disabled={isSubmit}
         primary
         keyboardFocused
-        onTouchTap={this.handleSubmit}
+        onClick={this.handleSubmit}
       />,
       <FlatButton
         label="Hủy"
         primary={false}
-        onTouchTap={handleClose}
+        onClick={handleClose}
       />,
     ]
 
